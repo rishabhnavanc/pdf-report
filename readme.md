@@ -1,0 +1,1 @@
+figma link : https://www.figma.com/file/VogEY81MV8vIMIVaTXiVZq/Navanc-Internal--Web?type=design&node-id=911%3A13180&mode=dev
