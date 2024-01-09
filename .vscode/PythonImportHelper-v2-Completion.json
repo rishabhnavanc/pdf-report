@@ -1,0 +1,1073 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "make_response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "make_response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "make_response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "draw",
+        "importPath": "reportlab.graphics.renderSVG",
+        "description": "reportlab.graphics.renderSVG",
+        "isExtraImport": true,
+        "detail": "reportlab.graphics.renderSVG",
+        "documentation": {}
+    },
+    {
+        "label": "draw",
+        "importPath": "reportlab.graphics.renderSVG",
+        "description": "reportlab.graphics.renderSVG",
+        "isExtraImport": true,
+        "detail": "reportlab.graphics.renderSVG",
+        "documentation": {}
+    },
+    {
+        "label": "Canvas",
+        "importPath": "reportlab.pdfgen.canvas",
+        "description": "reportlab.pdfgen.canvas",
+        "isExtraImport": true,
+        "detail": "reportlab.pdfgen.canvas",
+        "documentation": {}
+    },
+    {
+        "label": "Canvas",
+        "importPath": "reportlab.pdfgen.canvas",
+        "description": "reportlab.pdfgen.canvas",
+        "isExtraImport": true,
+        "detail": "reportlab.pdfgen.canvas",
+        "documentation": {}
+    },
+    {
+        "label": "letter",
+        "importPath": "reportlab.lib.pagesizes",
+        "description": "reportlab.lib.pagesizes",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.pagesizes",
+        "documentation": {}
+    },
+    {
+        "label": "A4",
+        "importPath": "reportlab.lib.pagesizes",
+        "description": "reportlab.lib.pagesizes",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.pagesizes",
+        "documentation": {}
+    },
+    {
+        "label": "letter",
+        "importPath": "reportlab.lib.pagesizes",
+        "description": "reportlab.lib.pagesizes",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.pagesizes",
+        "documentation": {}
+    },
+    {
+        "label": "A4",
+        "importPath": "reportlab.lib.pagesizes",
+        "description": "reportlab.lib.pagesizes",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.pagesizes",
+        "documentation": {}
+    },
+    {
+        "label": "black",
+        "importPath": "reportlab.lib.colors",
+        "description": "reportlab.lib.colors",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.colors",
+        "documentation": {}
+    },
+    {
+        "label": "white",
+        "importPath": "reportlab.lib.colors",
+        "description": "reportlab.lib.colors",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.colors",
+        "documentation": {}
+    },
+    {
+        "label": "red",
+        "importPath": "reportlab.lib.colors",
+        "description": "reportlab.lib.colors",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.colors",
+        "documentation": {}
+    },
+    {
+        "label": "HexColor",
+        "importPath": "reportlab.lib.colors",
+        "description": "reportlab.lib.colors",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.colors",
+        "documentation": {}
+    },
+    {
+        "label": "black",
+        "importPath": "reportlab.lib.colors",
+        "description": "reportlab.lib.colors",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.colors",
+        "documentation": {}
+    },
+    {
+        "label": "white",
+        "importPath": "reportlab.lib.colors",
+        "description": "reportlab.lib.colors",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.colors",
+        "documentation": {}
+    },
+    {
+        "label": "red",
+        "importPath": "reportlab.lib.colors",
+        "description": "reportlab.lib.colors",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.colors",
+        "documentation": {}
+    },
+    {
+        "label": "HexColor",
+        "importPath": "reportlab.lib.colors",
+        "description": "reportlab.lib.colors",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.colors",
+        "documentation": {}
+    },
+    {
+        "label": "SimpleDocTemplate",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "PageBreak",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "Paragraph",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "Spacer",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "Frame",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "PageTemplate",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "Table",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "TableStyle",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "KeepTogether",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "SimpleDocTemplate",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "PageBreak",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "Paragraph",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "Spacer",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "Frame",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "PageTemplate",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "Table",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "TableStyle",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "KeepTogether",
+        "importPath": "reportlab.platypus",
+        "description": "reportlab.platypus",
+        "isExtraImport": true,
+        "detail": "reportlab.platypus",
+        "documentation": {}
+    },
+    {
+        "label": "getSampleStyleSheet",
+        "importPath": "reportlab.lib.styles",
+        "description": "reportlab.lib.styles",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.styles",
+        "documentation": {}
+    },
+    {
+        "label": "ParagraphStyle",
+        "importPath": "reportlab.lib.styles",
+        "description": "reportlab.lib.styles",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.styles",
+        "documentation": {}
+    },
+    {
+        "label": "getSampleStyleSheet",
+        "importPath": "reportlab.lib.styles",
+        "description": "reportlab.lib.styles",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.styles",
+        "documentation": {}
+    },
+    {
+        "label": "ParagraphStyle",
+        "importPath": "reportlab.lib.styles",
+        "description": "reportlab.lib.styles",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.styles",
+        "documentation": {}
+    },
+    {
+        "label": "cm",
+        "importPath": "reportlab.lib.units",
+        "description": "reportlab.lib.units",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.units",
+        "documentation": {}
+    },
+    {
+        "label": "cm",
+        "importPath": "reportlab.lib.units",
+        "description": "reportlab.lib.units",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.units",
+        "documentation": {}
+    },
+    {
+        "label": "PDFGenerator",
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "isExtraImport": true,
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "PDFGenerator",
+        "kind": 6,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "class PDFGenerator():\n    def __init__(self):\n        self.buffer = BytesIO()\n        self.pagesize = letter\n        self.start_color = HexColor('#4444BD')\n        self.end_color = HexColor('#00AEFF')\n        self.data_json_map = {\n            \"Basic Valuation Details\" : \"basic_valuation_detail\",\n            \"Basic Details\" : \"basic_valuation_detail\",\n            \"Property Details\" : \"property_details\",",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "styles",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "styles = getSampleStyleSheet()\npStyles = ParagraphStyle(name=\"Heading1\", alignment=1,\n                         parent=styles['BodyText'], leading=8.2)\nwidth, height = letter\n# IMAGES\nbankImage = \"./assets/images/bank_image.jpeg\"\nreport = \"./assets/images/report.png\"\nvalle_logo_white = \"./assets/images/valle_logo_white.jpeg\"\nvalle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "pStyles",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "pStyles = ParagraphStyle(name=\"Heading1\", alignment=1,\n                         parent=styles['BodyText'], leading=8.2)\nwidth, height = letter\n# IMAGES\nbankImage = \"./assets/images/bank_image.jpeg\"\nreport = \"./assets/images/report.png\"\nvalle_logo_white = \"./assets/images/valle_logo_white.jpeg\"\nvalle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "bankImage",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "bankImage = \"./assets/images/bank_image.jpeg\"\nreport = \"./assets/images/report.png\"\nvalle_logo_white = \"./assets/images/valle_logo_white.jpeg\"\nvalle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "report",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "report = \"./assets/images/report.png\"\nvalle_logo_white = \"./assets/images/valle_logo_white.jpeg\"\nvalle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "valle_logo_white",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "valle_logo_white = \"./assets/images/valle_logo_white.jpeg\"\nvalle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "valle_logo_black",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "valle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "basic_valuation_details",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "basic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "property_details",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "property_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "building_details",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "building_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "infrastructure_details",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "infrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "technical_details",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "technical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "property_value_assesment",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "property_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "valuer_remarks",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "valuer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "valuer_details",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "valuer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "images",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "images = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "shield",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "shield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(\n    'CenteredStyle',",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "table_title_sider",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "table_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "ACCENT",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "ACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=0,  # 0=left, 1=center, 2=right\n)\ncentered_style = ParagraphStyle(",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "ACCENT_BG",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "ACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=0,  # 0=left, 1=center, 2=right\n)\ncentered_style = ParagraphStyle(\n    'CenteredStyle',",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "BACKGROUND",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "BACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=0,  # 0=left, 1=center, 2=right\n)\ncentered_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "left_style",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "left_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=0,  # 0=left, 1=center, 2=right\n)\ncentered_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=1,  # 0=left, 1=center, 2=right\n)",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "centered_style",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "centered_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=1,  # 0=left, 1=center, 2=right\n)\nright_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=2,  # 0=left, 1=center, 2=right\n)",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "right_style",
+        "kind": 5,
+        "importPath": "generator.pdf_generator",
+        "description": "generator.pdf_generator",
+        "peekOfCode": "right_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=2,  # 0=left, 1=center, 2=right\n)\nclass PDFGenerator():\n    def __init__(self):\n        self.buffer = BytesIO()\n        self.pagesize = letter\n        self.start_color = HexColor('#4444BD')",
+        "detail": "generator.pdf_generator",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def index():\n    return render_template('index.html')\n@app.route('/generate-pdf')\ndef generate_pdf():\n    pdf_generator = PDFGenerator()\n    pdf_response = pdf_generator.generate_pdf()\n    return pdf_response\nif __name__ == '__main__':\n    app.run(debug=True, port=7000)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "generate_pdf",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def generate_pdf():\n    pdf_generator = PDFGenerator()\n    pdf_response = pdf_generator.generate_pdf()\n    return pdf_response\nif __name__ == '__main__':\n    app.run(debug=True, port=7000)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/')\ndef index():\n    return render_template('index.html')\n@app.route('/generate-pdf')\ndef generate_pdf():\n    pdf_generator = PDFGenerator()\n    pdf_response = pdf_generator.generate_pdf()\n    return pdf_response\nif __name__ == '__main__':",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def index():\n    return render_template('index.html')\n@app.route('/generate-pdf')\ndef generate_pdf():\n    response = generate_pdf_class()\n    return response\ndef front_page():\n    bordered_image = Image(bankImage, width=123, height=43)\n    def footor():\n        container_style = ParagraphStyle(",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "generate_pdf",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def generate_pdf():\n    response = generate_pdf_class()\n    return response\ndef front_page():\n    bordered_image = Image(bankImage, width=123, height=43)\n    def footor():\n        container_style = ParagraphStyle(\n            'ContainerStyle',\n            parent=getSampleStyleSheet()['BodyText'],\n            alignment=1,  # Center alignment",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "front_page",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def front_page():\n    bordered_image = Image(bankImage, width=123, height=43)\n    def footor():\n        container_style = ParagraphStyle(\n            'ContainerStyle',\n            parent=getSampleStyleSheet()['BodyText'],\n            alignment=1,  # Center alignment\n            # spaceBefore=20,  # Adjust as needed\n            # spaceAfter=20,   # Adjust as needed\n            backColor='white',",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "pdf_index_header",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def pdf_index_header():\n    data = [[Image(valle_logo_black, width=60, height=18.25),\n            \"\",\n            Image(bankImage, width=68, height=24)]]\n    t = Table(data, colWidths=(70, 420, 80), rowHeights=60)\n    t.setStyle(TableStyle([\n        ('VALIGN', (0, 0), (-1, -1), 'CENTRE'),\n        ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),\n        ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),\n        # ('GRID', (1, 0), (-2, -1), 1, black),",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "pdf_header",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def pdf_header():\n    data = [[Image(valle_logo_black, width=60, height=18.25),\n            Image(report, width=198, height=56),\n            Image(bankImage, width=68, height=24)]]\n    t = Table(data, colWidths=(70, 420, 80), rowHeights=60)\n    t.setStyle(TableStyle([\n        ('VALIGN', (0, 0), (-1, -1), 'CENTRE'),\n        ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),\n        ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),\n        # ('GRID', (1, 0), (-2, -1), 1, black),",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "pdf_footer",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def pdf_footer(canvas, doc):\n    # content = f\"\"\" This document contains confidential information. Share this document with authorized and\n    #             approved users of the Financial Institution. NOT for Public Distribution\"\"\"\n    # data = [[Image(shield, width=60, height=18.25),\n    #         Paragraph(f\"<p>{content}</p>\"),\n    #         Paragraph(\"KA100509\"), Paragraph(\"<p>1</p>\")]]\n    # t = Table(data, colWidths=(40, 320, 80, 80), rowHeights=60)\n    # t.setStyle(TableStyle([\n    #     ('VALIGN', (0, 0), (-1, -1), 'CENTRE'),\n    #     ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "index_page_content",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def index_page_content():\n    contentStyles = ParagraphStyle(\n        name=\"content\", parent=styles['BodyText'], alignment=0, leading=8.2, fontSize=16, fontWeight=\"700\")\n    pageCountStyles = ParagraphStyle(\n        name=\"page-count\", alignment=1, parent=styles['BodyText'], leading=8.2, fontSize=14, textColor=ACCENT)\n    size = 26\n    # Can be optimised\n    data = [\n        [Image(basic_valuation_details, width=size, height=size),\n            Paragraph(\"<p>Basic Valuation Details</p>\", contentStyles),",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "index_page_content_footer",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def index_page_content_footer():\n    data = [[Paragraph(\"\"),\n            Image(report, width=353, height=100),\n            Paragraph(\"\"),]]\n    t = Table(data, colWidths=(70, 420, 80), rowHeights=60)\n    t.setStyle(TableStyle([\n        ('VALIGN', (0, 0), (-1, -1), 'CENTRE'),\n        ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),\n        ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),\n        # ('GRID', (1, 0), (-2, -1), 1, black),",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "index_page",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def index_page():\n    story = []\n    header = pdf_index_header()\n    content = index_page_content()\n    content_footer_image = index_page_content_footer()\n    story.append(header)\n    story.append(Spacer(height=60, width=width))\n    story.append(content)\n    # story.append(Spacer(height=88, width=width))\n    story.append(content_footer_image)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "tableFormatTitle",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def tableFormatTitle(table_name):\n    table_name_styles = ParagraphStyle(\n        'table_name_styles',\n        parent=getSampleStyleSheet()['BodyText'],\n        alignment=0,  # 0=left, 1=center, 2=right\n        fontSize=12,\n        # leading=18\n    )\n    switch={\n       'Basic Valuation Details': \"Basic Details\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "BasicValuationDetailsRowContent",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def BasicValuationDetailsRowContent(table_name):\n    data = [\n        [\n            \"\",\n            \"Name of Applicant\",\n            \"John Doe\",\n        ],\n        [\n            \"\",\n            \"Report Date\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ImagesRowContent",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def ImagesRowContent(table_name):\n    data = [\n        [\n            \"\",\n           Image(property_image, width=237.5, height=155),\n           Image(property_image, width=237.5, height=155)\n        ],\n        [\n            \"\",\n           Image(property_image, width=237.5, height=155),",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "table",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def table(table_name):\n    story = []\n    story.append(pdf_header())\n    story.append(Spacer(width=width, height=8))\n    story.append(tableFormatTitle(table_name))\n    story.append(Spacer(width=width, height=15))\n    story.append(BasicValuationDetailsRowContent(table_name))\n    return story\ndef imagesPage(table_name):\n    story=[]",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "imagesPage",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def imagesPage(table_name):\n    story=[]\n    story.append(pdf_header())\n    story.append(Spacer(width=width, height=10))\n    story.append(tableFormatTitle(table_name))\n    story.append(Spacer(width=width, height=20))\n    story.append(ImagesRowContent(table_name))\n    return story\ndef pdf_content():\n    section_basic_valuation = table(table_name=\"Basic Valuation Details\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "pdf_content",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def pdf_content():\n    section_basic_valuation = table(table_name=\"Basic Valuation Details\")\n    section_images = imagesPage(table_name=\"Images\")\n    story = []\n    # story.append(Spacer(width=width, height=23))\n    story.append(KeepTogether(section_basic_valuation))\n    story.append(KeepTogether(section_images))\n    return story\ndef generate_pdf_class():\n    buffer = BytesIO()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "generate_pdf_class",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def generate_pdf_class():\n    buffer = BytesIO()\n    pdf = SimpleDocTemplate(buffer, pagesize=letter)\n    start_color = HexColor('#4444BD')\n    end_color = HexColor('#00AEFF')\n    frame_cover = Frame(\n        pdf.leftMargin, pdf.bottomMargin,\n        pdf.width, pdf.height,\n        topPadding=0,\n        id='normal'",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "generate_dynamic_pdf_lg_done",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def generate_dynamic_pdf_lg_done():\n    # Create a BytesIO buffer to hold the PDF content\n    buffer = BytesIO()\n    pdf = canvas.Canvas(buffer, pagesize=letter)\n    x, y = 0, 2\n    width, height = letter\n    start_color = HexColor('#4444BD')\n    end_color = HexColor('#00AEFF')\n    bankImage = \"./assets/images/bank_image.jpeg\"\n    valle_Logo_White = \"./assets/SVG/Valle_Logo_White.svg\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = Flask(__name__)\nx, y = 0, 2\nstyles = getSampleStyleSheet()\npStyles = ParagraphStyle(name=\"Heading1\", alignment=1,\n                         parent=styles['BodyText'], leading=8.2)\nwidth, height = letter\n# IMAGES\nbankImage = \"./assets/images/bank_image.jpeg\"\nreport = \"./assets/images/report.png\"\nvalle_logo_white = \"./assets/images/valle_logo_white.jpeg\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "styles",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "styles = getSampleStyleSheet()\npStyles = ParagraphStyle(name=\"Heading1\", alignment=1,\n                         parent=styles['BodyText'], leading=8.2)\nwidth, height = letter\n# IMAGES\nbankImage = \"./assets/images/bank_image.jpeg\"\nreport = \"./assets/images/report.png\"\nvalle_logo_white = \"./assets/images/valle_logo_white.jpeg\"\nvalle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "pStyles",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "pStyles = ParagraphStyle(name=\"Heading1\", alignment=1,\n                         parent=styles['BodyText'], leading=8.2)\nwidth, height = letter\n# IMAGES\nbankImage = \"./assets/images/bank_image.jpeg\"\nreport = \"./assets/images/report.png\"\nvalle_logo_white = \"./assets/images/valle_logo_white.jpeg\"\nvalle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "bankImage",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "bankImage = \"./assets/images/bank_image.jpeg\"\nreport = \"./assets/images/report.png\"\nvalle_logo_white = \"./assets/images/valle_logo_white.jpeg\"\nvalle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "report",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "report = \"./assets/images/report.png\"\nvalle_logo_white = \"./assets/images/valle_logo_white.jpeg\"\nvalle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "valle_logo_white",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "valle_logo_white = \"./assets/images/valle_logo_white.jpeg\"\nvalle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "valle_logo_black",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "valle_logo_black = \"./assets/images/valle_logo_black.jpeg\"\nbasic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "basic_valuation_details",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "basic_valuation_details = \"./assets/images/Basic Valuation Details.jpeg\"\nproperty_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "property_details",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "property_details = \"./assets/images/Property Details.jpg\"\nbuilding_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "building_details",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "building_details = \"./assets/images/Building Details .jpeg\"\ninfrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "infrastructure_details",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "infrastructure_details = \"./assets/images/Infrastructure Details.jpeg\"\ntechnical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "technical_details",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "technical_details = \"./assets/images/Technical Details.jpeg\"\nproperty_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "property_value_assesment",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "property_value_assesment = \"./assets/images/Property Value Assesment.jpeg\"\nvaluer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "valuer_remarks",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "valuer_remarks = \"./assets/images/Valuer Remarks.png\"\nvaluer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "valuer_details",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "valuer_details = \"./assets/images/Valuer Details.png\"\nimages = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "images",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "images = \"./assets/images/Images Icon.jpeg\"\nshield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "shield",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "shield = \"./assets/images/shield.jpeg\"\ntable_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(\n    'CenteredStyle',",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "table_title_sider",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "table_title_sider = \"./assets/images/table_title_sider.jpeg\"\nproperty_image= \"./assets/images/property_image.jpeg\"\n# COLOURS\nACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ACCENT",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "ACCENT = HexColor(\"#32B0F1\")\nACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=0,  # 0=left, 1=center, 2=right\n)\ncentered_style = ParagraphStyle(",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ACCENT_BG",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "ACCENT_BG = HexColor(\"#EBF8FF\")\nBACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=0,  # 0=left, 1=center, 2=right\n)\ncentered_style = ParagraphStyle(\n    'CenteredStyle',",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "BACKGROUND",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "BACKGROUND = HexColor(\"#E9E9E8\")\n# Styles\nleft_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=0,  # 0=left, 1=center, 2=right\n)\ncentered_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "left_style",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "left_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=0,  # 0=left, 1=center, 2=right\n)\ncentered_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=1,  # 0=left, 1=center, 2=right\n)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "centered_style",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "centered_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=1,  # 0=left, 1=center, 2=right\n)\nright_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=2,  # 0=left, 1=center, 2=right\n)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "right_style",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "right_style = ParagraphStyle(\n    'CenteredStyle',\n    parent=getSampleStyleSheet()['BodyText'],\n    alignment=2,  # 0=left, 1=center, 2=right\n)\n@app.route('/')\ndef index():\n    return render_template('index.html')\n@app.route('/generate-pdf')\ndef generate_pdf():",
+        "detail": "main",
+        "documentation": {}
+    }
+]
