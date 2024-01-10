@@ -361,20 +361,10 @@
         "remark 1": "Due to the property owner's unavailability this week, kindly initiate the valuation process next week",
         "remark 2": "Due to the property owner's unavailability this week, kindly initiate the valuation process next week"
     },
-    "images": [
-        {
-            "filename": "dummy.pdf",
-            "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-04%2009%3A56%3A35.310646others_dummy.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240108%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240108T182808Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=3c3de1cc3e62cd986ec2a232b270d24252bee17003bd24e2afaf1d898c13b212"
-        },
-        {
-            "filename": "dummy.pdf",
-            "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-06%2008%3A15%3A49.718964others_dummy.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240108%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240108T182808Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=7c79df39c00be15bc3008a82d6b294a94d2843f142e8cda19746000c05956718"
-        },
-        {
-            "filename": "valuation_doc2024-01-08 08_11_49.610354others_Add Media Button.png",
-            "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-08%2011%3A28%3A28.160322others_valuation_doc2024-01-08%2008_11_49.610354others_Add%20Media%20Button.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240108%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240108T182808Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=fdeee49ed180de382a5cc362fe9787c0fea169bc8f1dc0eb36f6f03f8d1c91ac"
-        }
-    ],
+    "images": [{
+        "filename": "valuation_doc2024-01-08 08_11_49.610354others_Add Media Button.png",
+        "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-08%2011%3A28%3A28.160322others_valuation_doc2024-01-08%2008_11_49.610354others_Add%20Media%20Button.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240108%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240108T182808Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=fdeee49ed180de382a5cc362fe9787c0fea169bc8f1dc0eb36f6f03f8d1c91ac"
+    }],
     "valuer_detail": {
         "first_name": "Mayur",
         "last_name": "Jain",

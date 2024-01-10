@@ -1,8 +1,9 @@
 import os
 import json
+import boto3
 import requests
 
-from flask import Flask, render_template, make_response
+from flask import Flask, make_response
 from io import BytesIO
 from reportlab.graphics.renderSVG import draw
 from reportlab.pdfgen.canvas import Canvas
@@ -11,6 +12,7 @@ from reportlab.lib.colors import black, white, red, HexColor
 from reportlab.platypus import SimpleDocTemplate, PageBreak, Paragraph, Spacer, Frame, PageTemplate, Image, Table, TableStyle, KeepTogether
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import cm
+
 
 x, y = 0, 2
 styles = getSampleStyleSheet()
@@ -69,6 +71,35 @@ class PDFGenerator():
         self.start_color = HexColor('#4444BD')
         self.end_color = HexColor('#00AEFF')
         
+        # self.data_file = open(os.getcwd() + "/data/reportData.json", 'r')
+        # self.data = json.load(self.data_file)
+        
+        # self.data = self.get_data()
+        
+        
+    def get_data(self, valle_lead_number):
+        
+        url = "https://valle-be-api.dev.navanc.com/valuer/view-report"
+
+        payload = json.dumps({
+        "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..d9TzoDsyasrHmFjg.FPaV1mh04AorlX135KywZ8Z0KCxzXEKJf0HsgFoA7bXtv4R6sVAzUmUENiQZmojP7I9PEYIPUwdNr9K4d9heshXOEiUpapC6KR8tZccfYy9r59KyrSTQx1L4C3KXCShEWGdVMCVNB6XwPSznqIPkyFtNb6x7znv-Zln811kSAqPoq-fIbMMHAy_wim52dyZwhcygtx_408xMloLWDvgI9IIyj0jz0rdPso33wpNvrKpyKyUkWDDmg5qxn3rfNL5CHwOQ-stnkVriJYD77Sa1anScK4IsVVh8np2pisw4OLGtXaXzN-nwi5Zc-Zr9Lu9dEBflRJSVfSoX-kvbvGcLMOn7PV2Vt7AUnjxUEv8LIoKKxd5CAeM3Qm2jx4FSVd0.W6IaU8yE8JGIfSvWxeKwVw",
+        "valle_lead_number": valle_lead_number
+        })
+        headers = {
+        'Content-Type': 'application/json'
+        }
+
+        response = requests.request("POST", url, headers=headers, data=payload)
+        print(response.text)
+        
+        response_json = json.loads(response.text)
+        print(response_json)
+        
+        self.data = response_json["data"]
+        
+        self.property_value_assesment_map = self.data.get('property_value_assessment').keys()
+        self.property_value_assesment = [ self.string_formatter(val) for val in self.property_value_assesment_map ]
+        
         self.data_json_map = {
             "Basic Valuation Details" : "basic_valuation_detail",
             "Basic Details" : "basic_valuation_detail",
@@ -85,7 +116,9 @@ class PDFGenerator():
             "BUA Details" : "bua_detail",
             "SBUA Details" : "sbua_detail",
             "Additional Details" : "additional_details",
-            "Valuer Remarks" : "valuer_remarks"
+            "Valuer Remarks" : "valuer_remarks",
+            "Property Value Assessment" : "property_value_assessment",
+            "Images" : "images"
         }
         
         self.subsections = {
@@ -94,32 +127,14 @@ class PDFGenerator():
                 "Building Details": [ "Construction Details", "Plan Details"],
                 "Infrastructure Support" : [ "Infrastructure Support"],
                 "Technical Details": [ "Plot Dimensions", "Land Area", "BUA Details", "SBUA Details", "Additional Details"],
-                # "Property Value Assessment" : [ ]
-                "Valuer Remarks" : [ "Valuer Remarks" ]
+                "Property Value Assessment" : self.property_value_assesment,            
+                "Valuer Remarks" : [ "Valuer Remarks" ],
+                "Images" : [ "All Images" ]
             }
         
-        # self.data_file = open(os.getcwd() + "/data/reportData.json", 'r')
-        # self.data = json.load(self.data_file)
-        
-        self.data = self.get_data()
-        
-    def get_data(self):
-        
-        url = "https://valle-be-api.dev.navanc.com/valuer/view-report"
-
-        payload = json.dumps({
-        "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..d9TzoDsyasrHmFjg.FPaV1mh04AorlX135KywZ8Z0KCxzXEKJf0HsgFoA7bXtv4R6sVAzUmUENiQZmojP7I9PEYIPUwdNr9K4d9heshXOEiUpapC6KR8tZccfYy9r59KyrSTQx1L4C3KXCShEWGdVMCVNB6XwPSznqIPkyFtNb6x7znv-Zln811kSAqPoq-fIbMMHAy_wim52dyZwhcygtx_408xMloLWDvgI9IIyj0jz0rdPso33wpNvrKpyKyUkWDDmg5qxn3rfNL5CHwOQ-stnkVriJYD77Sa1anScK4IsVVh8np2pisw4OLGtXaXzN-nwi5Zc-Zr9Lu9dEBflRJSVfSoX-kvbvGcLMOn7PV2Vt7AUnjxUEv8LIoKKxd5CAeM3Qm2jx4FSVd0.W6IaU8yE8JGIfSvWxeKwVw",
-        "valle_lead_number": "KA100662"
-        })
-        headers = {
-        'Content-Type': 'application/json'
-        }
-
-        response = requests.request("POST", url, headers=headers, data=payload)
-        print(response.text)
-        
-        response_json = json.loads(response.text)
-        return response_json["data"]
+        for k,v in zip(self.property_value_assesment, self.property_value_assesment_map):
+            self.data_json_map[k] = v
+            
         
     def string_formatter(self, string):
         
@@ -322,7 +337,7 @@ class PDFGenerator():
                 
         data = [[Image(shield, width=60, height=18.25),
                 Paragraph(f"<p>{content}</p>", left_style),
-                Paragraph("KA100509", left_style), Paragraph("<p>1</p>", left_style)]]
+                Paragraph(self.valle_lead_number, left_style), Paragraph("<p>1</p>", left_style)]]
         
         table_data = Table(data, colWidths=(40, 320, 80, 80), rowHeights=60)
         
@@ -336,32 +351,7 @@ class PDFGenerator():
             ('TEXTCOLOR', (0, 0), (1, -1), black)]))
         
         return table_data
-        
-        # Create a table for the footer
-        # content = """ This document contains confidential information. Share this document with authorized and
-        #                 approved users of the Financial Institution. NOT for Public Distribution"""
-
-        # footer_table_data = [[Image(shield, width=60, height=18.25),
-        #                     Paragraph("12",
-        #                                 left_style),
-        #                     Paragraph("<p>1</p>", left_style),
-        #                     Paragraph("<p>1</p>", left_style)]]
-
-        # footer_table = Table(footer_table_data, colWidths=(
-        #     40, 320, 80, 80), rowHeights=60)
-        # footer_table.setStyle(TableStyle([
-        #     ('VALIGN', (0, 0), (-1, -1), 'CENTER'),
-        #     ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),
-        #     ('ALIGN', (1, 0), (-2, -1), 'CENTER'),
-        #     ('LINEBELOW', (0, 0), (-1, -1), 1, ACCENT),
-        #     ('TEXTCOLOR', (0, 0), (1, -1), black)
-        # ]))
-
-        # # Draw the footer table on the canvas
-        # footer_table.wrapOn(canvas, 0, 0)
-        # footer_table.drawOn(canvas, 36, 36)
-
-        # canvas.restoreState()
+    
     
     def create_section_heading(self, section=None):
         
@@ -372,10 +362,7 @@ class PDFGenerator():
             fontSize=12,
             # leading=18
         )
-        
-        # table_section_list = self.section_headings.get(section, "")
 
-        # for table_section_name in table_section_list:
         data = [
             [
                 Image(basic_valuation_details, width=20, height=20),
@@ -412,9 +399,6 @@ class PDFGenerator():
             # leading=18
         )
         
-        # table_section_list = self.section_headings.get(section, "")
-
-        # for table_section_name in table_section_list:
         data = [
             [
                 Image(basic_valuation_details, width=12, height=12),
@@ -447,12 +431,12 @@ class PDFGenerator():
         
         data_dict = {}
         
-        if section in ("Basic Valuation Details", "Infrastructure Support", "Valuer Remarks"):
+        if section in ("Basic Valuation Details", "Infrastructure Support", "Valuer Remarks", "Images"):
             data_dict = self.data.get(j_section, {})
         else:
             data_dict = self.data.get(j_section, {}).get(j_subsection, {})
         
-        print("Data Dictionary: {}".format(data_dict))
+        print(f"Data Dictionary {j_section} - {j_subsection} :: {data_dict}\n\n")
         
         data = []
         
@@ -499,14 +483,73 @@ class PDFGenerator():
 
         return story
     
+    def create_images_section(self, section=""):
+        story = []
+        story.append(self.create_pdf_page_header())
+        story.append(Spacer(width=width, height=8))
+        story.append(self.create_section_heading(section))
+        story.append(Spacer(width=width, height=15))
+        story.append(self.create_subsection_heading("All Images"))
+        
+        images_data = self.data.get("images")
+        data = []
+        
+        try:
+            os.mkdir("assets/pdf_dynamic_images/VLN")
+        except:
+            print("Directory Already Exists")
+        
+        for img_number, img_data in enumerate(images_data):
+            
+            image_name = "report_image_" + str(img_number)
+            
+            image_url = img_data["url"]
+            
+            image_data = requests.get(image_url)
+            
+            with open(f'{os.getcwd()}/assets/pdf_dynamic_images/{image_name}.jpg', 'wb') as f:
+                f.write(image_data.content)
+            
+            data.append([ "", Image(f'{os.getcwd()}/assets/pdf_dynamic_images/{image_name}.jpg', width=237.5, height=155)
+                            , Image(f'{os.getcwd()}/assets/pdf_dynamic_images/{image_name}.jpg', width=237.5, height=155)])
+            
+            # data.append([ "", Image(property_image, width=237.5, height=155)
+            #                 , Image(property_image, width=237.5, height=155)])
+        
+        table_data = Table(data, colWidths=(25, 260, 250), rowHeights=200)
+        table_data.setStyle(TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            # ('BACKGROUND', (0, 0), (2, 0), ACCENT_BG),
+            # ('BACKGROUND', (0, 0), (-1, -1), BACKGROUND),
+            # ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),
+            # ('ALIGN', (2, 0), (-1, -2), 'CENTRE'),
+            # ('ALIGN', (0, 1), (-3, -1), 'RIGHT'),
+            # ('VALIGN', (0, 1), (-3, -1), 'CENTRE'),
+            # ('ALIGN', (0, 0), (-2, -2), 'CENTRE'),
+            # ('GRID', (1, 0), (-2, -1), 1, black),
+            # ('GRID', (0, 0), (-1, -1), 0.5, red),
+            ('TEXTCOLOR', (0, 0), (1, -1), black)]))
+        
+        story.append(table_data)
+        
+        ### Delete The Temporary Directory
+        
+        story.append(Spacer(width=width, height=15))
+        story.append(self.create_pdf_page_footer())
+        
+        
+        return story
+        
+        
     def create_pdf_page(self, data=None):
         section_basic_valuation = self.create_section("Basic Valuation Details")
         section_property_details = self.create_section("Property Details")
         section_building_details = self.create_section("Building Details")
         section_infrastructure_support = self.create_section("Infrastructure Support")
         section_technical_details = self.create_section("Technical Details")
+        section_property_value_assessement = self.create_section("Property Value Assessment")
         section_valuer_remarks = self.create_section("Valuer Remarks")
-        # section_images = imagesPage(table_name="Images")
+        section_images = self.create_images_section("Images")
         
         story = []
         # story.append(Spacer(width=width, height=23))
@@ -520,8 +563,11 @@ class PDFGenerator():
         story.append(PageBreak())
         story.append(KeepTogether(section_technical_details))
         story.append(PageBreak())
+        story.append(KeepTogether(section_property_value_assessement))
+        story.append(PageBreak())
         story.append(KeepTogether(section_valuer_remarks))
-        # story.append(KeepTogether(section_images))
+        story.append(PageBreak())
+        story.append(KeepTogether(section_images))
 
         return story
     
@@ -531,7 +577,13 @@ class PDFGenerator():
         canvas.linearGradient(x0=0, y0=height, x1=width /
                               0.5, y1=0, colors=[self.start_color, self.end_color])
     
-    def generate_pdf(self):
+    def generate_pdf(self, valle_lead_number):
+        
+        print("Valle Lead Number", valle_lead_number)
+        
+        self.valle_lead_number = valle_lead_number
+        
+        self.get_data(self.valle_lead_number)
         
         self.pdf_report = SimpleDocTemplate(self.buffer, pagesize=self.pagesize)
         
@@ -585,210 +637,3 @@ class PDFGenerator():
         self.pdf_response.headers['Content-Type'] = 'application/pdf'
 
         return self.pdf_response
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#     # Create a table for the footer
-#     content = """ This document contains confidential information. Share this document with authorized and
-#                     approved users of the Financial Institution. NOT for Public Distribution"""
-
-#     footer_table_data = [[Image(shield, width=60, height=18.25),
-#                           Paragraph("12",
-#                                     left_style),
-#                           Paragraph("<p>1</p>", left_style),
-#                           Paragraph("<p>1</p>", left_style)]]
-
-#     footer_table = Table(footer_table_data, colWidths=(
-#         40, 320, 80, 80), rowHeights=60)
-#     footer_table.setStyle(TableStyle([
-#         ('VALIGN', (0, 0), (-1, -1), 'CENTER'),
-#         ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),
-#         ('ALIGN', (1, 0), (-2, -1), 'CENTER'),
-#         ('LINEBELOW', (0, 0), (-1, -1), 1, ACCENT),
-#         ('TEXTCOLOR', (0, 0), (1, -1), black)
-#     ]))
-
-#     # Draw the footer table on the canvas
-#     footer_table.wrapOn(canvas, 0, 0)
-#     footer_table.drawOn(canvas, 36, 36)
-
-#     canvas.restoreState()
-
-
-
-
-
-
-
-
-
-
-
-
-# def ImagesRowContent(table_name):
-#     data = [
-#         [
-#             "",
-#            Image(property_image, width=237.5, height=155),
-#            Image(property_image, width=237.5, height=155)
-#         ],
-#         [
-#             "",
-#            Image(property_image, width=237.5, height=155),
-#            Image(property_image, width=237.5, height=155),
-#         ],
-#         [
-#             "",
-#            Image(property_image, width=237.5, height=155),
-#            Image(property_image, width=237.5, height=155),
-#         ],
-#         [
-#             "",
-#            Image(property_image, width=237.5, height=155),
-#            Image(property_image, width=237.5, height=155),
-#         ]
-#     ]
-#     t = Table(data, colWidths=(25, 260, 250), rowHeights=200)
-#     t.setStyle(TableStyle([
-#         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-#         # ('BACKGROUND', (0, 0), (2, 0), ACCENT_BG),
-#         ('BACKGROUND', (2, 4), (-1, -1), BACKGROUND),
-#         # ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),
-#         # ('ALIGN', (2, 0), (-1, -2), 'CENTRE'),
-#         # ('ALIGN', (0, 1), (-3, -1), 'RIGHT'),
-#         # ('VALIGN', (0, 1), (-3, -1), 'CENTRE'),
-#         # ('ALIGN', (0, 0), (-2, -2), 'CENTRE'),
-#         # ('GRID', (1, 0), (-2, -1), 1, black),
-#         # ('GRID', (0, 0), (-1, -1), 0.5, red),
-#         ('TEXTCOLOR', (0, 0), (1, -1), black)]))
-#     return t
-
-
-# def imagesPage(table_name):
-#     story=[]
-#     story.append(pdf_header())
-#     story.append(Spacer(width=width, height=10))
-#     story.append(tableFormatTitle(table_name))
-#     story.append(Spacer(width=width, height=20))
-#     story.append(ImagesRowContent(table_name))
-
-#     return story
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def generate_dynamic_pdf_lg_done():
-#     # Create a BytesIO buffer to hold the PDF content
-#     buffer = BytesIO()
-#     pdf = canvas.Canvas(buffer, pagesize=letter)
-#     x, y = 0, 2
-#     width, height = letter
-#     start_color = HexColor('#4444BD')
-#     end_color = HexColor('#00AEFF')
-#     bankImage = "./assets/images/bank_image.jpeg"
-#     valle_Logo_White = "./assets/SVG/Valle_Logo_White.svg"
-
-#     # Create a path with a gradient fill
-#     pdf.linearGradient(x0=x, y0=height, x1=width/0.5, y1=y,
-#                        colors=[start_color, end_color])
-
-#     # pdf.drawString(200, 700, "Hello, this is RD dynamic PDF!", direction=[x,y] )
-
-#     pdf.drawImage(bankImage, height=60, width=183, x=width *
-#                   0.38, y=height-100, preserveAspectRatio=True)
-#     # renderSVG.draw(pdf, valle_Logo_White)
-
-#     pdf.drawString(100, 100, "Hello, this is RD dynamic PDF!",
-#                    direction=[x, y])
-
-#     pdf.save()
-
-#     buffer.seek(0)
-
-#     # Create a response with the PDF content type
-#     response = make_response(buffer.read())
-#     response.headers['Content-Disposition'] = 'inline; filename=dynamic_pdf.pdf'
-#     response.headers['Content-Type'] = 'application/pdf'
-
-#     return response
-
-
-# # def generate_pdf_pdfkit():
-# #     try :
-# #         name = "Rishabh"
-
-# #         html = f"<html><body><h1>{name}</h1></body></html>"
-# #         options = {
-# #         'page-size': 'Letter',
-# #         'margin-top': '0.75in',
-# #         'margin-right': '0.75in',
-# #         'margin-bottom': '0.75in',
-# #         'margin-left': '0.75in',
-# #         'encoding': "UTF-8",
-# #         'no-outline': None
-# #         }
-# #         config = pdfkit.configuration()
-# #         pdf = pdfkit.from_string(html, 'out.pdf', options=options, configuration=config, verbose=False)
-# #         # pdf = pdfkit.from_string(html, verbose=True)
-# #         print(pdf)
-
-# #         header = {
-# #             "Content-Type" : 'application/pdf',
-# #         }
-
-# #         response = Response(pdf, headers=header)
-# #         return response
-# #     except OSError:
-# #         print("error")
-
