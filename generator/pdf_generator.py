@@ -1,7 +1,7 @@
 import os
 import json
-import boto3
 import requests
+import shutil
 
 from flask import Flask, make_response
 from io import BytesIO
@@ -483,6 +483,21 @@ class PDFGenerator():
 
         return story
     
+    def destribute_images(self, images):
+        
+        data = []
+        
+        if len(images)%2==0:
+            for img in range(0, len(images), 2):
+                data.append([ "", Image(images[img], width=237.5, height=155), Image(images[img+1], width=237.5, height=155) ])
+        else:
+            for img in range(0, len(images)-1, 2):
+                data.append([ "", Image(images[img], width=237.5, height=155), Image(images[img+1], width=237.5, height=155) ])
+            data.append([ "", Image(images[-1], width=237.5, height=155), ""])
+            
+        return data
+            
+
     def create_images_section(self, section=""):
         story = []
         story.append(self.create_pdf_page_header())
@@ -493,9 +508,10 @@ class PDFGenerator():
         
         images_data = self.data.get("images")
         data = []
+        all_images = []
         
         try:
-            os.mkdir("assets/pdf_dynamic_images/VLN")
+            os.mkdir(f"assets/pdf_dynamic_images/{self.valle_lead_number}")
         except:
             print("Directory Already Exists")
         
@@ -507,15 +523,13 @@ class PDFGenerator():
             
             image_data = requests.get(image_url)
             
-            with open(f'{os.getcwd()}/assets/pdf_dynamic_images/{image_name}.jpg', 'wb') as f:
+            with open(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/{image_name}.jpg', 'wb') as f:
                 f.write(image_data.content)
+                
+            all_images.append(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/{image_name}.jpg')
             
-            data.append([ "", Image(f'{os.getcwd()}/assets/pdf_dynamic_images/{image_name}.jpg', width=237.5, height=155)
-                            , Image(f'{os.getcwd()}/assets/pdf_dynamic_images/{image_name}.jpg', width=237.5, height=155)])
+        data = self.destribute_images(all_images)
             
-            # data.append([ "", Image(property_image, width=237.5, height=155)
-            #                 , Image(property_image, width=237.5, height=155)])
-        
         table_data = Table(data, colWidths=(25, 260, 250), rowHeights=200)
         table_data.setStyle(TableStyle([
             ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
@@ -531,8 +545,6 @@ class PDFGenerator():
             ('TEXTCOLOR', (0, 0), (1, -1), black)]))
         
         story.append(table_data)
-        
-        ### Delete The Temporary Directory
         
         story.append(Spacer(width=width, height=15))
         story.append(self.create_pdf_page_footer())
@@ -635,5 +647,11 @@ class PDFGenerator():
         self.pdf_response = make_response(self.buffer.read())
         self.pdf_response.headers['Content-Disposition'] = 'inline; filename=dynamic_pdf.pdf'
         self.pdf_response.headers['Content-Type'] = 'application/pdf'
+        
+        ### Delete The Temporary Directory
+        try:
+            shutil.rmtree(f"assets/pdf_dynamic_images/{self.valle_lead_number}")
+        except:
+            print("Unable to Delete Temporary Directory")
 
         return self.pdf_response
