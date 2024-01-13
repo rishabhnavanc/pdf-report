@@ -27,15 +27,16 @@
         "documentation": {}
     },
     {
-        "label": "Flask",
-        "importPath": "flask",
-        "description": "flask",
+        "label": "shutil",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "flask",
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
         "documentation": {}
     },
     {
-        "label": "render_template",
+        "label": "Flask",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -67,7 +68,7 @@
         "documentation": {}
     },
     {
-        "label": "make_response",
+        "label": "request",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -463,7 +464,7 @@
         "kind": 6,
         "importPath": "generator.pdf_generator",
         "description": "generator.pdf_generator",
-        "peekOfCode": "class PDFGenerator():\n    def __init__(self):\n        self.buffer = BytesIO()\n        self.pagesize = letter\n        self.start_color = HexColor('#4444BD')\n        self.end_color = HexColor('#00AEFF')\n        self.data_json_map = {\n            \"Basic Valuation Details\" : \"basic_valuation_detail\",\n            \"Basic Details\" : \"basic_valuation_detail\",\n            \"Property Details\" : \"property_details\",",
+        "peekOfCode": "class PDFGenerator():\n    def __init__(self):\n        self.buffer = BytesIO()\n        self.pagesize = letter\n        self.start_color = HexColor('#4444BD')\n        self.end_color = HexColor('#00AEFF')\n        # self.data_file = open(os.getcwd() + \"/data/reportData.json\", 'r')\n        # self.data = json.load(self.data_file)\n        # self.data = self.get_data()\n    def get_data(self, valle_lead_number):",
         "detail": "generator.pdf_generator",
         "documentation": {}
     },
@@ -679,7 +680,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def index():\n    return render_template('index.html')\n@app.route('/generate-pdf')\ndef generate_pdf():\n    pdf_generator = PDFGenerator()\n    pdf_response = pdf_generator.generate_pdf()\n    return pdf_response\nif __name__ == '__main__':\n    app.run(debug=True, port=7000)",
+        "peekOfCode": "def index():\n    return render_template('index.html')\n@app.route('/generate-pdf', methods=['POST'])\ndef generate_pdf():\n    valle_lead_number = str(request.form['valle_lead_number'])\n    insititute_lead_number = str(request.form['insititute_lead_number'])\n    organisation_name = str(request.form['organisation_name'])\n    if valle_lead_number != \"\":\n        pdf_generator = PDFGenerator()\n        pdf_response = pdf_generator.generate_pdf(valle_lead_number, insititute_lead_number, organisation_name)",
         "detail": "app",
         "documentation": {}
     },
@@ -688,7 +689,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def generate_pdf():\n    pdf_generator = PDFGenerator()\n    pdf_response = pdf_generator.generate_pdf()\n    return pdf_response\nif __name__ == '__main__':\n    app.run(debug=True, port=7000)",
+        "peekOfCode": "def generate_pdf():\n    valle_lead_number = str(request.form['valle_lead_number'])\n    insititute_lead_number = str(request.form['insititute_lead_number'])\n    organisation_name = str(request.form['organisation_name'])\n    if valle_lead_number != \"\":\n        pdf_generator = PDFGenerator()\n        pdf_response = pdf_generator.generate_pdf(valle_lead_number, insititute_lead_number, organisation_name)\n        return pdf_response\n    else:\n        return render_template(\"index.html\")",
         "detail": "app",
         "documentation": {}
     },
@@ -697,7 +698,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app = Flask(__name__)\n@app.route('/')\ndef index():\n    return render_template('index.html')\n@app.route('/generate-pdf')\ndef generate_pdf():\n    pdf_generator = PDFGenerator()\n    pdf_response = pdf_generator.generate_pdf()\n    return pdf_response\nif __name__ == '__main__':",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/')\ndef index():\n    return render_template('index.html')\n@app.route('/generate-pdf', methods=['POST'])\ndef generate_pdf():\n    valle_lead_number = str(request.form['valle_lead_number'])\n    insititute_lead_number = str(request.form['insititute_lead_number'])\n    organisation_name = str(request.form['organisation_name'])\n    if valle_lead_number != \"\":",
         "detail": "app",
         "documentation": {}
     },

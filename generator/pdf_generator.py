@@ -118,7 +118,10 @@ class PDFGenerator():
             "Additional Details" : "additional_details",
             "Valuer Remarks" : "valuer_remarks",
             "Property Value Assessment" : "property_value_assessment",
-            "Images" : "images"
+            "Images" : "images",
+            "Valuer Details" : "valuer_detail",
+            "Valuer Declaration" : "valuer_declaration",
+            "Declaration" : "declaration",
         }
         
         self.subsections = {
@@ -129,6 +132,8 @@ class PDFGenerator():
                 "Technical Details": [ "Plot Dimensions", "Land Area", "BUA Details", "SBUA Details", "Additional Details"],
                 "Property Value Assessment" : self.property_value_assesment,            
                 "Valuer Remarks" : [ "Valuer Remarks" ],
+                "Valuer Details" : [ "Seal and Signature" ],
+                "Valuer Declaration" : [ "Declaration" ],
                 "Images" : [ "All Images" ]
             }
         
@@ -179,6 +184,9 @@ class PDFGenerator():
         story = []
 
         story.append(bordered_image)
+        story.append(Spacer(height=10, width=width))
+        content_text = f"""<font size=14 color='white'>{self.organisation_name}</font>"""
+        story.append(Paragraph(content_text, pStyles))
         story.append(Spacer(height=10, width=width))
         story.append(Image(report, width=400, height=98))
         story.append(Spacer(height=18, width=width))
@@ -425,28 +433,7 @@ class PDFGenerator():
         
         return table_data
     
-    def create_subsection(self, section, subsection):
-        
-        j_section, j_subsection = self.data_json_map.get(section), self.data_json_map.get(subsection)
-        
-        data_dict = {}
-        
-        if section in ("Basic Valuation Details", "Infrastructure Support", "Valuer Remarks", "Images"):
-            data_dict = self.data.get(j_section, {})
-        else:
-            data_dict = self.data.get(j_section, {}).get(j_subsection, {})
-        
-        print(f"Data Dictionary {j_section} - {j_subsection} :: {data_dict}\n\n")
-        
-        data = []
-        
-        for key, value in data_dict.items():
-            if type(value)==type({}):
-                data.append(["", self.string_formatter(key), ""])
-                for k,v in value.items():
-                    data.append(["", self.string_formatter(k), self.string_formatter(v)])
-            else:
-                data.append(["", self.string_formatter(key), self.string_formatter(value)])
+    def create_subsection(self, data):
         
         table_data = Table(data, colWidths=(25, 260, 250), rowHeights=30)
         
@@ -474,8 +461,31 @@ class PDFGenerator():
         
         sub_sections = self.subsections.get(section, "")
         for subsection in sub_sections:
-            story.append(self.create_subsection_heading(subsection))
-            story.append(self.create_subsection(section, subsection))
+            
+            j_section, j_subsection = self.data_json_map.get(section), self.data_json_map.get(subsection)
+        
+            data_dict = {}
+            
+            if section in ("Basic Valuation Details", "Infrastructure Support", "Valuer Remarks", "Images"):
+                data_dict = self.data.get(j_section, {})
+            else:
+                data_dict = self.data.get(j_section, {}).get(j_subsection, {})
+            
+            print(f"Data Dictionary {j_section} - {j_subsection} :: {data_dict}\n\n")
+            
+            data = []
+            
+            for key, value in data_dict.items():
+                if type(value)==type({}):
+                    data.append(["", self.string_formatter(key), ""])
+                    for k,v in value.items():
+                        data.append(["", self.string_formatter(k), self.string_formatter(v)])
+                else:
+                    data.append(["", self.string_formatter(key), self.string_formatter(value)])
+            
+            if data:
+                story.append(self.create_subsection_heading(subsection))
+                story.append(self.create_subsection(data))
         
         story.append(Spacer(width=width, height=15))
         story.append(self.create_pdf_page_footer())
@@ -496,17 +506,15 @@ class PDFGenerator():
             data.append([ "", Image(images[-1], width=237.5, height=155), ""])
             
         return data
-            
-
-    def create_images_section(self, section=""):
+    
+    def create_images_section(self, section, images_data):
         story = []
         story.append(self.create_pdf_page_header())
         story.append(Spacer(width=width, height=8))
         story.append(self.create_section_heading(section))
         story.append(Spacer(width=width, height=15))
         story.append(self.create_subsection_heading("All Images"))
-        
-        images_data = self.data.get("images")
+
         data = []
         all_images = []
         
@@ -551,6 +559,76 @@ class PDFGenerator():
         
         
         return story
+    
+    def destribute_images(self, images):
+        
+        data = []
+        
+        if len(images)%2==0:
+            for img in range(0, len(images), 2):
+                data.append([ "", Image(images[img], width=237.5, height=155), Image(images[img+1], width=237.5, height=155) ])
+        else:
+            for img in range(0, len(images)-1, 2):
+                data.append([ "", Image(images[img], width=237.5, height=155), Image(images[img+1], width=237.5, height=155) ])
+            data.append([ "", Image(images[-1], width=237.5, height=155), ""])
+            
+        return data
+            
+
+    def create_valuer_details_section(self, section):
+        story = []
+        story.append(self.create_pdf_page_header())
+        story.append(Spacer(width=width, height=8))
+        story.append(self.create_section_heading(section))
+        story.append(Spacer(width=width, height=15))
+        story.append(self.create_subsection_heading("Seal and Signature"))
+
+        data = []
+        all_images = []
+        
+        try:
+            os.mkdir(f"assets/pdf_dynamic_images/{self.valle_lead_number}")
+        except:
+            print("Directory Already Exists")
+            
+        valuer_detail = self.data.get("valuer_detail")
+        valuer_seal_url = valuer_detail.get("seal_doc").get("url")
+        valuer_sign_url = valuer_detail.get("sign_doc").get("url")
+            
+        image_data = requests.get(valuer_seal_url)
+        with open(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_seal.jpg', 'wb') as f:
+            f.write(image_data.content)
+        all_images.append(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_seal.jpg')
+         
+         
+        image_data = requests.get(valuer_sign_url)
+        with open(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_sign.jpg', 'wb') as f:
+            f.write(image_data.content)
+        all_images.append(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_sign.jpg')
+                    
+        data = self.destribute_images(all_images)
+            
+        table_data = Table(data, colWidths=(25, 260, 250), rowHeights=200)
+        table_data.setStyle(TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            # ('BACKGROUND', (0, 0), (2, 0), ACCENT_BG),
+            # ('BACKGROUND', (0, 0), (-1, -1), BACKGROUND),
+            # ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),
+            # ('ALIGN', (2, 0), (-1, -2), 'CENTRE'),
+            # ('ALIGN', (0, 1), (-3, -1), 'RIGHT'),
+            # ('VALIGN', (0, 1), (-3, -1), 'CENTRE'),
+            # ('ALIGN', (0, 0), (-2, -2), 'CENTRE'),
+            # ('GRID', (1, 0), (-2, -1), 1, black),
+            # ('GRID', (0, 0), (-1, -1), 0.5, red),
+            ('TEXTCOLOR', (0, 0), (1, -1), black)]))
+        
+        story.append(table_data)
+        
+        story.append(Spacer(width=width, height=15))
+        story.append(self.create_pdf_page_footer())
+        
+        
+        return story
         
         
     def create_pdf_page(self, data=None):
@@ -561,7 +639,11 @@ class PDFGenerator():
         section_technical_details = self.create_section("Technical Details")
         section_property_value_assessement = self.create_section("Property Value Assessment")
         section_valuer_remarks = self.create_section("Valuer Remarks")
-        section_images = self.create_images_section("Images")
+        section_valuer_declaration = self.create_section("Valuer Declaration")
+        section_valuer_details = self.create_valuer_details_section("Valuer Details")
+        images_data = self.data.get("images")
+        if images_data:
+            section_images = self.create_images_section("Images", images_data)
         
         story = []
         # story.append(Spacer(width=width, height=23))
@@ -579,7 +661,12 @@ class PDFGenerator():
         story.append(PageBreak())
         story.append(KeepTogether(section_valuer_remarks))
         story.append(PageBreak())
-        story.append(KeepTogether(section_images))
+        story.append(KeepTogether(section_valuer_declaration))
+        story.append(PageBreak())
+        story.append(KeepTogether(section_valuer_details))
+        if images_data:
+            story.append(PageBreak())
+            story.append(KeepTogether(section_images))
 
         return story
     
@@ -589,13 +676,27 @@ class PDFGenerator():
         canvas.linearGradient(x0=0, y0=height, x1=width /
                               0.5, y1=0, colors=[self.start_color, self.end_color])
     
-    def generate_pdf(self, valle_lead_number):
+    def generate_pdf(self, valle_lead_number, insititute_lead_number, organisation_name):
         
         print("Valle Lead Number", valle_lead_number)
         
         self.valle_lead_number = valle_lead_number
+        self.insititute_lead_number = insititute_lead_number
+        self.organisation_name = organisation_name
         
         self.get_data(self.valle_lead_number)
+        
+        try:
+            self.data["basic_valuation_detail"]["loan_application_number"] = self.insititute_lead_number
+        except Exception as e:
+            print("Error while inserting data into basic_valuation_detail" + str(e))
+            
+        self.data["valuer_declaration"] = { "declaration" : {
+                "1. " : "Valle and the Service Provider Partner have no direct or indirect interest in the property.",
+                "2." : "The valuation provided here is based on our best knowledge, ability and experience and is under prevailing market rates at the time of evaluation.",
+                "3." : "This report is computer-generated and has been reviewed by above Valuer, rendering a wet signature unnecessary."
+            }
+        }
         
         self.pdf_report = SimpleDocTemplate(self.buffer, pagesize=self.pagesize)
         

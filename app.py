@@ -13,10 +13,12 @@ def index():
 def generate_pdf():
     
     valle_lead_number = str(request.form['valle_lead_number'])
+    insititute_lead_number = str(request.form['insititute_lead_number'])
+    organisation_name = str(request.form['organisation_name'])
     
     if valle_lead_number != "":
         pdf_generator = PDFGenerator()
-        pdf_response = pdf_generator.generate_pdf(valle_lead_number)
+        pdf_response = pdf_generator.generate_pdf(valle_lead_number, insititute_lead_number, organisation_name)
         return pdf_response
     else:
         return render_template("index.html")
