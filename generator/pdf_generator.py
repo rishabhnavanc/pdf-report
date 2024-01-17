@@ -163,7 +163,7 @@ class FooterCanvas(canvas.Canvas):
         ]
 
         table_data = Table(container_content,
-                           colWidths=(50, 160, 50, 160), rowHeights=50, cornerRadii=(8, 8, 8, 8))
+                           colWidths=(50, 160, 50, 160), rowHeights=50)#, cornerRadii=(8, 8, 8, 8))
 
         table_data.setStyle(TableStyle([
             ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
@@ -384,7 +384,8 @@ class PDFGenerator():
         url = "https://valle-be-api.dev.navanc.com/valuer/view-report"
 
         payload = json.dumps({
-            "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..d9TzoDsyasrHmFjg.FPaV1mh04AorlX135KywZ8Z0KCxzXEKJf0HsgFoA7bXtv4R6sVAzUmUENiQZmojP7I9PEYIPUwdNr9K4d9heshXOEiUpapC6KR8tZccfYy9r59KyrSTQx1L4C3KXCShEWGdVMCVNB6XwPSznqIPkyFtNb6x7znv-Zln811kSAqPoq-fIbMMHAy_wim52dyZwhcygtx_408xMloLWDvgI9IIyj0jz0rdPso33wpNvrKpyKyUkWDDmg5qxn3rfNL5CHwOQ-stnkVriJYD77Sa1anScK4IsVVh8np2pisw4OLGtXaXzN-nwi5Zc-Zr9Lu9dEBflRJSVfSoX-kvbvGcLMOn7PV2Vt7AUnjxUEv8LIoKKxd5CAeM3Qm2jx4FSVd0.W6IaU8yE8JGIfSvWxeKwVw",
+            # "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..d9TzoDsyasrHmFjg.FPaV1mh04AorlX135KywZ8Z0KCxzXEKJf0HsgFoA7bXtv4R6sVAzUmUENiQZmojP7I9PEYIPUwdNr9K4d9heshXOEiUpapC6KR8tZccfYy9r59KyrSTQx1L4C3KXCShEWGdVMCVNB6XwPSznqIPkyFtNb6x7znv-Zln811kSAqPoq-fIbMMHAy_wim52dyZwhcygtx_408xMloLWDvgI9IIyj0jz0rdPso33wpNvrKpyKyUkWDDmg5qxn3rfNL5CHwOQ-stnkVriJYD77Sa1anScK4IsVVh8np2pisw4OLGtXaXzN-nwi5Zc-Zr9Lu9dEBflRJSVfSoX-kvbvGcLMOn7PV2Vt7AUnjxUEv8LIoKKxd5CAeM3Qm2jx4FSVd0.W6IaU8yE8JGIfSvWxeKwVw",
+            "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..gF2ckHputFQHTg0Y.RYJbnIbq8NGNvEuKVUh0XQ_cqTlAEYqTb2oqB1_RQp7hLSUpd0kTbfDaNMCos2DHpym2FrkXCCVP-HBgEiXibWh5RvjXqezIHJ5IbDz7sgTIC94XKborkX9DtVUQ--PC9T2SaBwbX2ezvrrOVD6H8DidQHzCxXz-JBQsyr0pLBZLr9r-lfSKW-MN1MULl1e4F-GBipiA2B2tlODiord7jI6sYiVO01ny7mbqPTc6tJ0NufUS6WXbRbECLQmsf6Xk60nXiHGIPcgOc0ufISsa9kol-SMR7MqiYYkKyC_mEJtP9z8M7Gtq20F2YtyaSAa0VENyiygrpwkTJ3rTI1vVKee_1qoGp_Cs6O_7DrkFXYacXwA9nrCI-rn31ZAfAiw.wE3d7PqYf8nhAFghvfbvvQ",
             "valle_lead_number": valle_lead_number
         })
         headers = {
@@ -768,7 +769,7 @@ class PDFGenerator():
         story.append(table_data)
 
         story.append(Spacer(width=width, height=15))
-        story.append(self.create_pdf_page_footer())
+        # story.append(self.create_pdf_page_footer())
 
         return story
 
@@ -839,7 +840,7 @@ class PDFGenerator():
         story.append(table_data)
 
         story.append(Spacer(width=width, height=15))
-        story.append(self.create_pdf_page_footer())
+        # story.append(self.create_pdf_page_footer())
 
         return story
 
