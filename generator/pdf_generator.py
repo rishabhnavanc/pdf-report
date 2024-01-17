@@ -3,17 +3,14 @@ import json
 import requests
 import shutil
 
-from flask import Flask, make_response
+from flask import make_response
 from io import BytesIO
-from reportlab.graphics.renderSVG import draw
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter, A4
-from reportlab.lib.colors import black, white, red, HexColor
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.colors import black, HexColor
 from reportlab.platypus import SimpleDocTemplate, PageBreak, Paragraph, Preformatted, Spacer, Frame, PageTemplate, Image, Table, TableStyle, KeepTogether
-from reportlab.platypus.tableofcontents import TableOfContents
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.units import cm, inch
-from reportlab.lib import colors
+from reportlab.lib.units import inch
+# from generator.footer_generator import FooterCanvas
 
 
 x, y = 0, 2
@@ -43,21 +40,21 @@ table_title_sider = "./assets/images/table_title_sider.jpeg"
 property_image = "./assets/images/property_image.jpeg"
 mobile_image = "./assets/images/Mobile.jpg"
 email_image = "./assets/images/Email.jpg"
-amenities = "./assets/images/Amenitites.jpeg"
+amenities = "./assets/images/Amenities.jpeg"
 additional_details = "./assets/images/additional_details.jpeg"
 basic_details = "./assets/images/basic_details.jpeg"
-bua_details = "./assets/images/BUA Details.jpeg"
-construction_details = "./assets/images/Construction Details.jpeg"
+bua_details = "./assets/images/BUA Details.png"
+construction_details = "./assets/images/Construction details.jpg"
 final_valuation = "./assets/images/Final Valuation.jpeg"
 ground_floor = "./assets/images/ground_floor.jpeg"
 infrastructure_support = "./assets/images/Infrastructure Support.jpg"
 land_area = "./assets/images/Land area.jpg"
-loaction_details = "./assets/images/Loaction Details.jpeg"
-plan_details = "./assets/images/Plan Details.jpeg"
+loaction_details = "./assets/images/Land area.jpg"
+plan_details = "./assets/images/Plan details.jpg"
 plot_details = "./assets/images/Plot Details.jpeg"
 remarks = "./assets/images/Remarks.jpeg"
 sbua_details = "./assets/images/SBUA Details.png"
-schedule_details = "./assets/images/Schedule Details.jpeg"
+schedule_details = "./assets/images/Schedule Details.jpg"
 seal_signature_details = "./assets/images/seal_&_signature.jpeg"
 
 # COLOURS
@@ -86,284 +83,6 @@ right_style = ParagraphStyle(
     alignment=2,  # 0=left, 1=center, 2=right
 )
 
-
-class FooterCanvas(canvas.Canvas):
-
-    def __init__(self, *args, **kwargs):
-        canvas.Canvas.__init__(self, *args, **kwargs)
-        self.pages = []
-
-    def showPage(self):
-        self.pages.append(dict(self.__dict__))
-        self._startPage()
-
-    def save(self):
-        page_count = len(self.pages)
-        for page in self.pages:
-            self.__dict__.update(page)
-            if (self._pageNumber == 1):
-                self.draw_front_page_footer()
-            elif (self._pageNumber == 2):
-                self.draw_index_header(page_count)
-                self.draw_index_footer(page_count)
-            else:
-                self.draw_header(page_count)
-                self.draw_footer(page_count)
-            canvas.Canvas.showPage(self)
-        canvas.Canvas.save(self)
-
-    def draw_front_page_footer(self):
-
-        left_container_style = ParagraphStyle(
-            'ContainerStyle',
-            parent=getSampleStyleSheet()['BodyText'],
-            alignment=0,  # Center alignment
-            fontSize=12,
-            leading=16,
-            backColor='white',
-        )
-        right_container_style = ParagraphStyle(
-            'ContainerStyle',
-            parent=getSampleStyleSheet()['BodyText'],
-            alignment=2,  # Center alignment
-            backColor='white',
-        )
-        container_style = ParagraphStyle(
-            'ContainerStyle',
-            parent=getSampleStyleSheet()['BodyText'],
-            alignment=1,  # Center alignment
-            backColor='white',
-            borderColor="black",
-            borderWidth=1
-        )
-
-        # Add two paragraphs (divs) to the container with a line break between them
-        container_top_content = [[
-            "",
-            Image(valle_logo_white, width=150, height=60),
-            ""
-        ]
-        ]
-
-        table = Table(container_top_content,
-                      colWidths=(200, 200, 200), rowHeights=50)
-
-        table.wrapOn(self, 0, 0)
-
-        table.drawOn(self, 30, 125)
-
-        container_content = [[
-            Image(mobile_image, width=32, height=32),
-            Paragraph(
-                f"<span><b>Talk to us</b></span> <br /> <p> +91 {support_mobile_no}</p>", left_container_style),
-            Image(email_image, width=32, height=32),
-            Paragraph(
-                f"<span><b>Write to us</b></span> <br /> <p>support@navanc.com</p>", left_container_style),
-        ]
-        ]
-
-        table_data = Table(container_content,
-                           colWidths=(50, 160, 50, 160), rowHeights=50)#, cornerRadii=(8, 8, 8, 8))
-
-        table_data.setStyle(TableStyle([
-            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-            ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),
-            ("BACKGROUND", (0, 0), (-1, -1), colors.white),
-            # ('GRID', (0, 0), (-1, -1), 0.5, red),
-            ('TEXTCOLOR', (0, 0), (1, -1), black)]))
-
-        # Draw the table on the canvas
-        table_data.wrapOn(self, 0, 0)
-
-        table_data.drawOn(self, 100, 50)
-
-    def draw_index_header(self, page_count):
-
-        data = [
-            [Image(valle_logo_black, width=60, height=25),
-                "",
-                Image(bankImage, width=68, height=40)]
-        ]
-        table_data = Table(data, colWidths=(70, 400, 80), rowHeights=50)
-
-        style = TableStyle([
-            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-            # ('GRID', (0, 0), (-1, -1), 0.5, red),
-            ('LINEBELOW', (0, 0), (-1, -1), 1, ACCENT),
-            ('TEXTCOLOR', (0, 0), (1, -1), black)])
-
-        table_data.setStyle(style)
-
-        # Draw the table_data on the canvas
-        table_data.wrapOn(self, height-60, 0)
-        table_data.drawOn(self, 30, height-60)
-
-    def draw_index_footer(self, page_count):
-        page = self._pageNumber - 1
-        content = f""" This document contains sensitive information. Share this document with essential personal only. """
-
-        global VALLE_LEAD_NEMBER
-        self.valle_lead_number = VALLE_LEAD_NEMBER
-
-        lead_number_styles = ParagraphStyle(
-            'CenteredStyle',
-            parent=getSampleStyleSheet()['BodyText'],
-            alignment=1,
-            fontSize=14,
-            backColor=ACCENT_BG,
-            textColor=ACCENT,
-            leading=18,
-            borderRadius=3,
-            borderColor=ACCENT_BG,
-            borderWidth=1,
-            padding=(5, 2)
-        )
-
-        page_number_styles = ParagraphStyle(
-            'CenteredStyle',
-            parent=getSampleStyleSheet()['BodyText'],
-            alignment=1,
-            fontSize=22,
-            backColor=ACCENT,
-            textColor="white",
-            leading=24,
-            borderRadius=(8, 8),
-            borderColor=ACCENT,
-            borderWidth=1,
-            borderPadding=(2, 2, 20, 2)
-        )
-
-        table_name_styles = ParagraphStyle(
-            'table_name_styles',
-            parent=getSampleStyleSheet()['BodyText'],
-            alignment=0,  # 0=left, 1=center, 2=right
-            fontSize=12,
-            # leading=18
-        )
-
-        data = [[Paragraph("", table_name_styles),
-                Image(report, width=353, height=100),
-                Paragraph("", table_name_styles),]]
-
-        table_data = Table(data, colWidths=(70, 420, 80), rowHeights=30)
-
-        table_data.setStyle(TableStyle([
-            ('VALIGN', (0, 0), (-1, -1), 'CENTRE'),
-            ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),
-            ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),
-            # ('GRID', (1, 0), (-2, -1), 1, black),
-            # ('GRID', (0, 0), (-1, -1), 0.5, red),
-            # ('LINEBELOW', (0, 0), (-1, -1), 1, ACCENT),
-            ('TEXTCOLOR', (0, 0), (1, -1), black)]))
-
-        # Draw the table on the canvas
-        table_data.wrapOn(self, 0, 0)
-        table_data.drawOn(self, 30, 60)
-
-        bottom_first_data = [
-            [Image(shield, width=18, height=18.25),
-                Paragraph(content, left_style),
-                Paragraph(f"{self.valle_lead_number}", lead_number_styles),
-                Paragraph(f"{page}", page_number_styles)
-             ]
-        ]
-
-        table = Table(bottom_first_data, colWidths=(
-            30, 360, 100, 60), rowHeights=60)
-
-        # Apply styles to the table if needed
-        style = TableStyle([
-            ('VALIGN', (0, 0), (-1, -1), 'MIDD'),
-            ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),
-            # ('GRID', (1, 0), (-2, -1), 1, black),
-            # ('GRID', (0, 0), (-1, -1), 0.5, red),
-            ('LINEABOVE', (0, 0), (-1, -1), 1, ACCENT),
-            ('TEXTCOLOR', (0, 0), (1, -1), black)])
-
-        table.setStyle(style)
-
-        # Draw the table on the canvas
-        table.wrapOn(self, 0, 0)
-        table.drawOn(self, 30, 0)
-
-    def draw_header(self, page_count):
-
-        data = [[Image(valle_logo_black, width=60, height=25),
-                 Image(report, width=198, height=56),
-                 Image(bankImage, width=68, height=40)]]
-
-        table_data = Table(data, colWidths=(70, 420, 80), rowHeights=60)
-
-        table_data.setStyle(TableStyle([
-            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-            # ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),
-            ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),
-            # ('GRID', (1, 0), (-2, -1), 1, black),
-            # ('GRID', (0, 0), (-1, -1), 0.5, red),
-            ('LINEBELOW', (0, 0), (-1, -1), 1, ACCENT),
-            ('TEXTCOLOR', (0, 0), (1, -1), black)]))
-
-        # Draw the table_data on the canvas
-        table_data.wrapOn(self, height-60, 0)
-        table_data.drawOn(self, 20, height-70)
-
-    def draw_footer(self, page_count):
-        page = self._pageNumber - 1
-        content = f""" This document contains sensitive information. Share this document with essential personal only. """
-
-        global VALLE_LEAD_NEMBER
-        self.valle_lead_number = VALLE_LEAD_NEMBER
-
-        lead_number_styles = ParagraphStyle(
-            'CenteredStyle',
-            parent=getSampleStyleSheet()['BodyText'],
-            alignment=1,
-            fontSize=14,
-            backColor=ACCENT_BG,
-            textColor=ACCENT,
-            leading=18,
-            borderRadius=3,
-            borderColor=ACCENT_BG,
-            borderWidth=1,
-            padding=(5, 2)
-        )
-
-        page_number_styles = ParagraphStyle(
-            'CenteredStyle',
-            parent=getSampleStyleSheet()['BodyText'],
-            alignment=1,
-            fontSize=22,
-            backColor=ACCENT,
-            textColor="white",
-            leading=24,
-            borderRadius=(8, 8),
-            borderColor=ACCENT,
-            borderWidth=1,
-            borderPadding=(2, 2, 20, 2)
-        )
-
-        data = [[Image(shield, width=18, height=18.25),
-                Paragraph(content, left_style),
-                Paragraph(f"{self.valle_lead_number}", lead_number_styles), Paragraph(f"{page}", page_number_styles)]]
-
-        table = Table(data, colWidths=(30, 360, 100, 60), rowHeights=60)
-
-        # Apply styles to the table if needed
-        style = TableStyle([
-            ('VALIGN', (0, 0), (-1, -1), 'CENTRE'),
-            ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),
-            # ('GRID', (1, 0), (-2, -1), 1, black),
-            # ('GRID', (0, 0), (-1, -1), 0.5, red),
-            ('LINEABOVE', (0, 0), (-1, -1), 1, ACCENT),
-            ('TEXTCOLOR', (0, 0), (1, -1), black)])
-
-        table.setStyle(style)
-
-        # Draw the table on the canvas
-        table.wrapOn(self, 0, 0)
-        table.drawOn(self, 30, 0)
-
-
 class PDFGenerator():
 
     def __init__(self):
@@ -374,19 +93,15 @@ class PDFGenerator():
         self.start_color = HexColor('#4444BD')
         self.end_color = HexColor('#00AEFF')
 
-        # self.data_file = open(os.getcwd() + "/data/reportData.json", 'r')
-        # self.data = json.load(self.data_file)
-
-        # self.data = self.get_data()
-
     def get_data(self, valle_lead_number):
 
-        url = "https://valle-be-api.dev.navanc.com/valuer/view-report"
+        url = "https://console.navanc.com/report/nis-view-report"
+        # url = "https://valle-be-api.dev.navanc.com/report/nis-view-report"
 
         payload = json.dumps({
-            # "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..d9TzoDsyasrHmFjg.FPaV1mh04AorlX135KywZ8Z0KCxzXEKJf0HsgFoA7bXtv4R6sVAzUmUENiQZmojP7I9PEYIPUwdNr9K4d9heshXOEiUpapC6KR8tZccfYy9r59KyrSTQx1L4C3KXCShEWGdVMCVNB6XwPSznqIPkyFtNb6x7znv-Zln811kSAqPoq-fIbMMHAy_wim52dyZwhcygtx_408xMloLWDvgI9IIyj0jz0rdPso33wpNvrKpyKyUkWDDmg5qxn3rfNL5CHwOQ-stnkVriJYD77Sa1anScK4IsVVh8np2pisw4OLGtXaXzN-nwi5Zc-Zr9Lu9dEBflRJSVfSoX-kvbvGcLMOn7PV2Vt7AUnjxUEv8LIoKKxd5CAeM3Qm2jx4FSVd0.W6IaU8yE8JGIfSvWxeKwVw",
-            "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..gF2ckHputFQHTg0Y.RYJbnIbq8NGNvEuKVUh0XQ_cqTlAEYqTb2oqB1_RQp7hLSUpd0kTbfDaNMCos2DHpym2FrkXCCVP-HBgEiXibWh5RvjXqezIHJ5IbDz7sgTIC94XKborkX9DtVUQ--PC9T2SaBwbX2ezvrrOVD6H8DidQHzCxXz-JBQsyr0pLBZLr9r-lfSKW-MN1MULl1e4F-GBipiA2B2tlODiord7jI6sYiVO01ny7mbqPTc6tJ0NufUS6WXbRbECLQmsf6Xk60nXiHGIPcgOc0ufISsa9kol-SMR7MqiYYkKyC_mEJtP9z8M7Gtq20F2YtyaSAa0VENyiygrpwkTJ3rTI1vVKee_1qoGp_Cs6O_7DrkFXYacXwA9nrCI-rn31ZAfAiw.wE3d7PqYf8nhAFghvfbvvQ",
-            "valle_lead_number": valle_lead_number
+            # "token":"eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..7fGLOTHktVWJowPg.yGUOzJFPlqhCyhA1NqQK_WsR8a12KdPq6r8FtPqfA0sajC_YTBnQ5VCEq1I5VJGZXH4EyGelCliEhxUQhNzywP1fdVdDX-qn2oI7c3gErcs9Zu975TKVkirSmuPZ3Ayc9-EuW0iQUDW6KxKdnDeJFGI8DLI7VGlEaL4YcyDatcZzfm_MDKUak7evASWWPPTDEIcJ2W0FsnHy-MI70iUsxBueEzaA3ywfU8QU5wrPWxBOTcpfN0EA6OSX8DVnq02ednMUACJwnbAIQBMno-TQZcx7uy3YCuXSAbvpWfNT1JuSOp-wb8RhnhAp7hxAockYCh9GzU6KeaiWN1S-43S5FmVAZ9PqIZ-ijgna5WnX0sY62jPwqT625wAjiIuPWx8.Cio4a8i6BnscYbydGxbWzg",
+            "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9uYXZhbmMtcHJvZC51cy5hdXRoMC5jb20vIn0..GnvKKCXI0hVnho1f.xW7rGqqDBbFq99Gy00ImOJdZ1bQxzlGyGn3AWFKxwOE_LZKAVOz1Q2y65dvhSPdLzHnk4zNFyESTjl1ZCvLKKPXH4T7MWiE32vK4Q67CoVfgxfo3OyIBiY7PWsOPf1hRysAfIjKMaEu3BUDjE7p6HFvTBwLCpapT32bX455MG68qXqkXgRglDFFhrej_WBNUyREXHPWjNqneCtKGjvRmyw3DL939c9KC677gCQhHFu9VNdWR3n8adbIRv_h6JHGeGE0h_MWG_OUZSvJrhlPFTpIWTyU1GQPLnRMZVMkAJvHwUrYLX2zeCrefJRGnJxXi9Ymm9SpQuE0910Lhe_z5ZGenrelwOVjlnL9SKgw.qnQGzZC2VD-Acyhlm5ssgw",
+            "valle_lead_number": self.valle_lead_number
         })
         headers = {
             'Content-Type': 'application/json'
@@ -399,6 +114,12 @@ class PDFGenerator():
         print(response_json)
 
         self.data = response_json["data"]
+        
+        # self.data_file = open(os.getcwd() + "/data/KA1000149.json", 'r')
+        # self.data_json = json.load(self.data_file)
+        
+        # self.data = self.data_json["data"]
+        
 
         self.property_value_assesment_map = self.data.get(
             'property_value_assessment').keys()
@@ -441,11 +162,378 @@ class PDFGenerator():
             "Valuer Declaration": ["Declaration"],
             "Images": ["All Images"]
         }
+        
+        self.subsection_images = {
+            "amenities":  amenities,
+            "additional_details": additional_details,
+            "basic_valuation_detail": basic_details,
+            "bua_detail": bua_details,
+            "construction_detail": construction_details,
+            "final_valuation": final_valuation,
+            "ground_floor": ground_floor,
+            "infrastructure_detail": infrastructure_support,
+            "land_area": land_area,
+            "location_detail": loaction_details,
+            "plot_dimensons": plan_details,
+            "plot_details": plot_details,
+            "remarks": remarks,
+            "sbua_detail": sbua_details,
+            "schedule_detail": schedule_details,
+            "seal_signature_details": seal_signature_details,
+        }
+        
+        self.prefix_mapping = {
+            "property_value_assessment" : {
+                "land" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "basement_1" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "basement_2" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "ground_1" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "ground_2" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "ground_3" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "floor_1" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "floor_2" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "floor_3" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "floor_4" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "amenities" : {
+                    "amenity_1" : {
+                        "value" : "Rs "
+                    },
+                    "amenity_2" : {
+                        "value" : "Rs "
+                    },
+                    "amenity_3" : {
+                        "value" : "Rs "
+                    },
+                    "amenity_4" : {
+                        "value" : "Rs "
+                    },
+                    "amenity_5" : {
+                        "value" : "Rs "
+                    },
+                    "amenity_6" : {
+                        "value" : "Rs "
+                    }
+                },
+                "final_valuation" : {
+                    "fair_market_value_on_date" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "fair_market_value_on_completion" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "distressed_sale_value" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "valuation_as_per_guideline" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                }
+            }
+        }
+        
+        self.suffix_mapping = {
+            "property_details" : {
+                "location_detail" : {
+                    "distance_from_city_center" : " KM"
+                }
+            },
+            "technical_details" : {
+                "plot_dimensons" : {
+                    "north" : {
+                        "as_per_actual" : " Ft.",
+                        "as_per_document_provided" : " Ft.",
+                        "as_per_approved_plan" : " Ft."
+                    },
+                    "south" : {
+                        "as_per_actual" : " Ft.",
+                        "as_per_document_provided" : " Ft.",
+                        "as_per_approved_plan" : " Ft."
+                    },
+                    "east" : {
+                        "as_per_actual" : " Ft.",
+                        "as_per_document_provided" : " Ft.",
+                        "as_per_approved_plan" : " Ft."
+                    },
+                    "west" : {
+                        "as_per_actual" : " Ft.",
+                        "as_per_document_provided" : " Ft.",
+                        "as_per_approved_plan" : " Ft."
+                    }
+                },
+                "land_area" : {
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    }
+                },
+                "bua_detail" : {
+                    "basement_1" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "basement_2" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "ground_1" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "ground_2" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "ground_3" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "floor_1" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "floor_2" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "floor_3" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "floor_4" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "summation" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    }
+                },
+                "sbua_detail" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                },
+                "additional_details" : {
+                    "construction_progress" : "%",
+                    "recommendation_for_fumding" : "%",
+                    "age_of_property" : " Years",
+                    "residual_age_of_property" : " Years",
+                    "development_in_vicinity" : "%"
+                }
+            },            
+            "property_value_assessment" : {
+                "land" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                },
+                "basement_1" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                },
+                "basement_2" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                },
+                "ground_1" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                },
+                "ground_2" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                },
+                "ground_3" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                },
+                "floor_1" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                },
+                "floor_2" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                },
+                "floor_3" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                },
+                "floor_4" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                }
+            }
+        }
 
         for k, v in zip(self.property_value_assesment, self.property_value_assesment_map):
             self.data_json_map[k] = v
 
-    def string_formatter(self, string):
+    def string_formatter(self, string, prefix="", suffix=""):
 
         if type(string) == type({}):
             string = string.values()
@@ -454,9 +542,9 @@ class PDFGenerator():
         string = str(string)
         string = string.replace("_", " ")
         string = string.title()
-        return string
+        return prefix + string + suffix
 
-    def value_formatter(self, string):
+    def value_formatter(self, string, prefix="", suffix=""):
 
         if type(string) == type({}):
             string = string.values()
@@ -465,6 +553,8 @@ class PDFGenerator():
         string = str(string)
         string = string.replace("_", " ")
         string = string.title()
+        
+        if string: string = prefix + string + suffix
 
         v_styles = ParagraphStyle(name="Heading1", alignment=0,
                                   parent=styles['BodyText'], leading=15)
@@ -602,7 +692,7 @@ class PDFGenerator():
 
         return table_data
 
-    def create_subsection_heading(self, subsection):
+    def create_subsection_heading(self, subsection, j_subsection):
 
         table_name_styles = ParagraphStyle(
             'table_name_styles',
@@ -611,31 +701,12 @@ class PDFGenerator():
             fontSize=12,
             # leading=18
         )
-
-
-        # switch = {
-        #     "amenities":  "./assets/images/Amenitites.jpeg",
-        #     "additional_details": "./assets/images/additional_details.jpeg",
-        #     "basic_details": "./assets/images/basic_details.jpeg",
-        #     "bua_details": "./assets/images/BUA Details.jpeg",
-        #     "construction_details": "./assets/images/Construction Details.jpeg",
-        #     "final_valuation": "./assets/images/Final Valuation.jpeg",
-        #     "ground_floor": "./assets/images/ground_floor.jpeg",
-        #     "infrastructure_support": "./assets/images/Infrastructure Support.jpg",
-        #     "land_area": "./assets/images/Land area.jpg",
-        #     "location_detail": "./assets/images/Loaction Details.jpeg",
-        #     "plan_details": "./assets/images/Plan Details.jpeg",
-        #     "plot_details": "./assets/images/Plot Details.jpeg",
-        #     "remarks": "./assets/images/Remarks.jpeg",
-        #     "sbua_details": "./assets/images/SBUA Details.png",
-        #     "schedule_details": "./assets/images/Schedule Details.jpeg",
-        #     "seal_signature_details": "./assets/images/seal_&_signature.jpeg",
-        # }
-        # section_image = switch.get(subsection) | ""
+        
+        sub_section_image = self.subsection_images.get(j_subsection, land_area)
 
         data = [
             [
-                Image(basic_details, width=12, height=12),
+                Image(sub_section_image, width=12, height=12),
                 Paragraph(f"{subsection}", table_name_styles),
                 Paragraph(f"", table_name_styles),
             ]
@@ -682,7 +753,12 @@ class PDFGenerator():
             else:
                 data_dict = self.data.get(j_section, {}).get(j_subsection, {})
 
-            # print(f"Data Dictionary {j_section} - {j_subsection} :: {data_dict}\n\n")
+            print(f"Data Dictionary {j_section} - {j_subsection} :: {data_dict}\n\n")
+            
+            prefix_data = self.prefix_mapping.get(j_section, {}).get(j_subsection, {})
+            suffix_data = self.suffix_mapping.get(j_section, {}).get(j_subsection, {})
+            
+            print(prefix_data, suffix_data)
 
             data = []
 
@@ -690,14 +766,18 @@ class PDFGenerator():
                 if type(value) == type({}):
                     data.append(["", self.string_formatter(key), ""])
                     for k, v in value.items():
-                        data.append(["", self.string_formatter(k),
-                                    self.value_formatter(v)])
+                        prefix_x = prefix_data.get(key, {}).get(k, "")
+                        suffix_x = suffix_data.get(key, {}).get(k, "")
+                        data.append(["",self.string_formatter(k),
+                                    self.value_formatter(v, prefix_x, suffix_x)])
                 else:
+                    prefix = prefix_data.get(key, "")
+                    suffix = suffix_data.get(key, "")
                     data.append(["", self.string_formatter(
-                        key), self.value_formatter(value)])
+                        key), self.value_formatter(value, prefix, suffix)])
 
             if data:
-                story.append(self.create_subsection_heading(subsection))
+                story.append(self.create_subsection_heading(subsection, j_subsection))
                 story.append(self.create_subsection(data))
 
         story.append(Spacer(width=width, height=15))
@@ -705,36 +785,15 @@ class PDFGenerator():
 
         return story
 
-    def destribute_images(self, images):
-
-        data = []
-
-        if len(images) % 2 == 0:
-            for img in range(0, len(images), 2):
-                data.append(["", Image(images[img], width=237.5, height=155), Image(
-                    images[img+1], width=237.5, height=155)])
-        else:
-            for img in range(0, len(images)-1, 2):
-                data.append(["", Image(images[img], width=237.5, height=155), Image(
-                    images[img+1], width=237.5, height=155)])
-            data.append(["", Image(images[-1], width=237.5, height=155), ""])
-
-        return data
-
     def create_images_section(self, section, images_data):
         story = []
         story.append(Spacer(width=width, height=8))
         story.append(self.create_section_heading(section))
         story.append(Spacer(width=width, height=15))
-        story.append(self.create_subsection_heading("All Images"))
+        story.append(self.create_subsection_heading("All Images", ""))
 
         data = []
         all_images = []
-
-        try:
-            os.mkdir(f"assets/pdf_dynamic_images/{self.valle_lead_number}")
-        except:
-            print("Directory Already Exists")
 
         for img_number, img_data in enumerate(images_data):
 
@@ -795,7 +854,24 @@ class PDFGenerator():
         story.append(Spacer(width=width, height=8))
         story.append(self.create_section_heading(section))
         story.append(Spacer(width=width, height=15))
-        story.append(self.create_subsection_heading("Seal and Signature"))
+        
+        valuer_detail = self.data.get("valuer_detail")
+        
+        data_d = [[ "", "Valuer Name", valuer_detail.get("first_name", "") + " " + valuer_detail.get("last_name","")]]
+        
+        table_data_d = Table(data_d, colWidths=(25, 260, 250))
+
+        table_data_d.setStyle(TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+            # ('GRID', (0, 0), (-1, -1), 0.5, red),
+            ('TEXTCOLOR', (0, 0), (-2, -1), TEXT_ME),
+            ('TEXTCOLOR', (0, 0), (-1, -1), TEXT_HE),
+        ]))
+        
+        story.append(Spacer(width=width, height=15))
+        story.append(table_data_d)
+        
+        story.append(self.create_subsection_heading("Seal and Signature", ""))
 
         data = []
         all_images = []
@@ -805,21 +881,38 @@ class PDFGenerator():
         except:
             print("Directory Already Exists")
 
-        valuer_detail = self.data.get("valuer_detail")
+        # valuer_detail = self.data.get("valuer_detail")
+        
+        # data_d = [[ "", "Valuer Name", valuer_detail.get("first_name", "") + " " + valuer_detail.get("last_name","")]]
+        
+        # table_data_d = Table(data_d, colWidths=(25, 260, 250))
+
+        # table_data_d.setStyle(TableStyle([
+        #     ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        #     # ('GRID', (0, 0), (-1, -1), 0.5, red),
+        #     ('TEXTCOLOR', (0, 0), (-2, -1), TEXT_ME),
+        #     ('TEXTCOLOR', (0, 0), (-1, -1), TEXT_HE),
+        # ]))
+        
+        # story.append(Spacer(width=width, height=15))
+        # story.append(table_data_d)
+        
         valuer_seal_url = valuer_detail.get("seal_doc").get("url")
         valuer_sign_url = valuer_detail.get("sign_doc").get("url")
 
-        image_data = requests.get(valuer_seal_url)
-        with open(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_seal.jpg', 'wb') as f:
-            f.write(image_data.content)
-        all_images.append(
-            f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_seal.jpg')
+        if valuer_seal_url:
+            image_data = requests.get(valuer_seal_url)
+            with open(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_seal.jpg', 'wb') as f:
+                f.write(image_data.content)
+            all_images.append(
+                f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_seal.jpg')
 
-        image_data = requests.get(valuer_sign_url)
-        with open(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_sign.jpg', 'wb') as f:
-            f.write(image_data.content)
-        all_images.append(
-            f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_sign.jpg')
+        if valuer_sign_url:
+            image_data = requests.get(valuer_sign_url)
+            with open(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_sign.jpg', 'wb') as f:
+                f.write(image_data.content)
+            all_images.append(
+                f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/valuer_sign.jpg')
 
         data = self.destribute_images(all_images)
 
@@ -943,12 +1036,6 @@ class PDFGenerator():
             canvas, doc)
 
         self.pdf_queue = []
-        # toc = TableOfContents()
-        # Using keys() method to get the keys
-        # keys = self.data.keys()
-
-        # # Convert the view to a list if needed
-        # key_list = list(keys)
 
         # Cover page
         front_page = self.create_front_page()
@@ -966,39 +1053,7 @@ class PDFGenerator():
         # Build the PDF document
         global VALLE_LEAD_NEMBER
         VALLE_LEAD_NEMBER = self.valle_lead_number
-
-        # def draw_page_background(canvas, doc):
-
-        #     if doc.page == 2:
-        #         # Create an empty list to store the TOC entries
-        #         toc_entries = []
-
-        #         # Using keys() method to get the keys
-        #         keys = self.data.keys()
-
-        #         # Convert the view to a list if needed
-        #         key_list = list(keys)
-
-        #         # Add entries for each chapter
-        #         for chapter_num in range(len(key_list)):
-        #             chapter_title = f"{key_list[chapter_num]}"
-        #             toc_entries.append(
-        #                 Paragraph(chapter_title, getSampleStyleSheet()["BodyText"]))
-        #             toc.addEntry(0, chapter_title, doc.page - 1)
-
-        #         # Set the TOC entries in the TableOfContents
-        #         # toc.build(toc_entries)
-
-        #         # Draw the TOC on the canvas
-
-        #         if canvas is not None:
-        #             print("Debug: Drawing TOC on canvas")
-        #             # toc.drawOn(canvas, doc.leftMargin, doc.bottomMargin + 50)
-        #         else:
-        #             print("Error: Canvas is None")
-
-        # self.pdf_report.build(
-        #     self.pdf_queue,  onLaterPages=draw_page_background, canvasmaker=FooterCanvas)
+        
         self.pdf_report.build(
             self.pdf_queue,  canvasmaker=FooterCanvas)
 
@@ -1006,7 +1061,7 @@ class PDFGenerator():
 
         # Create a response with the PDF content type
         self.pdf_response = make_response(self.buffer.read())
-        self.pdf_response.headers['Content-Disposition'] = 'inline; filename=dynamic_pdf.pdf'
+        self.pdf_response.headers['Content-Disposition'] = f'inline; filename={self.valle_lead_number}.pdf'
         self.pdf_response.headers['Content-Type'] = 'application/pdf'
 
         # Delete The Temporary Directory
@@ -1017,3 +1072,347 @@ class PDFGenerator():
             print("Unable to Delete Temporary Directory")
 
         return self.pdf_response
+    
+    
+from reportlab.graphics.renderSVG import draw
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.colors import black, HexColor
+from reportlab.platypus import Paragraph, Image, Table, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib import colors
+
+
+x, y = 0, 2
+styles = getSampleStyleSheet()
+pStyles = ParagraphStyle(name="Heading1", alignment=1,
+                         parent=styles['BodyText'], leading=8.2)
+width, height = letter
+support_mobile_no = "8792957057"
+
+
+# IMAGES
+# bankImage = "./assets/images/bank_image.jpeg"
+# report = "./assets/images/report.png"
+# valle_logo_white = "./assets/images/valle_logo_white.png"
+# valle_logo_black = "./assets/images/valle_logo_black.jpeg"
+# basic_valuation_details = "./assets/images/Basic Valuation Details.jpeg"
+# property_details = "./assets/images/Property Details.jpg"
+# building_details = "./assets/images/Building Details .jpeg"
+# infrastructure_details = "./assets/images/Infrastructure Details.jpeg"
+# technical_details = "./assets/images/Technical Details.jpeg"
+# property_value_assesment = "./assets/images/Property Value Assesment.jpeg"
+# valuer_remarks = "./assets/images/Valuer Remarks.png"
+# valuer_details = "./assets/images/Valuer Details.png"
+# images = "./assets/images/Images Icon.jpeg"
+# shield = "./assets/images/shield.jpeg"
+# table_title_sider = "./assets/images/table_title_sider.jpeg"
+# property_image = "./assets/images/property_image.jpeg"
+# mobile_image = "./assets/images/Mobile.jpg"
+# email_image = "./assets/images/Email.jpg"
+# amenities = "./assets/images/Amenitites.jpeg"
+# additional_details = "./assets/images/additional_details.jpeg"
+# basic_details = "./assets/images/basic_details.jpeg"
+# bua_details = "./assets/images/BUA Details.jpeg"
+# construction_details = "./assets/images/Construction Details.jpeg"
+# final_valuation = "./assets/images/Final Valuation.jpeg"
+# ground_floor = "./assets/images/ground_floor.jpeg"
+# infrastructure_support = "./assets/images/Infrastructure Support.jpg"
+# land_area = "./assets/images/Land area.jpg"
+# loaction_details = "./assets/images/Loaction Details.jpeg"
+# plan_details = "./assets/images/Plan Details.jpeg"
+# plot_details = "./assets/images/Plot Details.jpeg"
+# remarks = "./assets/images/Remarks.jpeg"
+# sbua_details = "./assets/images/SBUA Details.png"
+# schedule_details = "./assets/images/Schedule Details.jpeg"
+# seal_signature_details = "./assets/images/seal_&_signature.jpeg"
+
+# COLOURS
+ACCENT = HexColor("#32B0F1")
+ACCENT_BG = HexColor("#EBF8FF")
+BACKGROUND = HexColor("#E9E9E8")
+TEXT_ME = HexColor("#6B7280")
+TEXT_HE = HexColor("#363551")
+
+# VALLE_LEAD_NEMBER = ""
+
+# Styles
+left_style = ParagraphStyle(
+    'CenteredStyle',
+    parent=getSampleStyleSheet()['BodyText'],
+    alignment=0,  # 0=left, 1=center, 2=right
+)
+centered_style = ParagraphStyle(
+    'CenteredStyle',
+    parent=getSampleStyleSheet()['BodyText'],
+    alignment=1,  # 0=left, 1=center, 2=right
+)
+right_style = ParagraphStyle(
+    'CenteredStyle',
+    parent=getSampleStyleSheet()['BodyText'],
+    alignment=2,  # 0=left, 1=center, 2=right
+)
+
+
+class FooterCanvas(canvas.Canvas):
+
+    def __init__(self, *args, **kwargs):
+        canvas.Canvas.__init__(self, *args, **kwargs)
+        self.pages = []
+        self.valle_lead_number = VALLE_LEAD_NEMBER
+        
+    def showPage(self):
+        self.pages.append(dict(self.__dict__))
+        self._startPage()
+
+    def save(self):
+        page_count = len(self.pages)
+        for page in self.pages:
+            self.__dict__.update(page)
+            if (self._pageNumber == 1):
+                self.draw_front_page_footer()
+            # elif (self._pageNumber == 2):
+            #     self.draw_index_header(page_count)
+            #     self.draw_index_footer(page_count)
+            else:
+                self.draw_header(page_count)
+                self.draw_footer(page_count)
+            canvas.Canvas.showPage(self)
+        canvas.Canvas.save(self)
+
+    def draw_front_page_footer(self):
+
+        left_container_style = ParagraphStyle(
+            'ContainerStyle',
+            parent=getSampleStyleSheet()['BodyText'],
+            alignment=0,  # Center alignment
+            fontSize=12,
+            leading=16,
+            backColor='white',
+        )
+
+        # Add two paragraphs (divs) to the container with a line break between them
+        container_top_content = [[
+            "",
+            Image(valle_logo_white, width=150, height=60),
+            ""
+        ]
+        ]
+
+        table = Table(container_top_content,
+                      colWidths=(200, 200, 200), rowHeights=50)
+
+        table.wrapOn(self, 0, 0)
+
+        table.drawOn(self, 30, 125)
+
+        container_content = [[
+            Image(mobile_image, width=32, height=32),
+            Paragraph(
+                f"<span><b>Talk to us</b></span> <br /> <p> +91 {support_mobile_no}</p>", left_container_style),
+            Image(email_image, width=32, height=32),
+            Paragraph(
+                f"<span><b>Write to us</b></span> <br /> <p>support@navanc.com</p>", left_container_style),
+        ]
+        ]
+
+        table_data = Table(container_content,
+                           colWidths=(50, 160, 50, 160), rowHeights=50)#, cornerRadii=(8, 8, 8, 8))
+
+        table_data.setStyle(TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),
+            ("BACKGROUND", (0, 0), (-1, -1), colors.white),
+            # ('GRID', (0, 0), (-1, -1), 0.5, red),
+            ('TEXTCOLOR', (0, 0), (1, -1), black)]))
+
+        # Draw the table on the canvas
+        table_data.wrapOn(self, 0, 0)
+
+        table_data.drawOn(self, 100, 50)
+
+    def draw_index_header(self, page_count):
+
+        data = [
+            [Image(valle_logo_black, width=60, height=25),
+                "",
+                Image(bankImage, width=68, height=40)]
+        ]
+        table_data = Table(data, colWidths=(70, 400, 80), rowHeights=50)
+
+        style = TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            # ('GRID', (0, 0), (-1, -1), 0.5, red),
+            ('LINEBELOW', (0, 0), (-1, -1), 1, ACCENT),
+            ('TEXTCOLOR', (0, 0), (1, -1), black)])
+
+        table_data.setStyle(style)
+
+        # Draw the table_data on the canvas
+        table_data.wrapOn(self, height-60, 0)
+        table_data.drawOn(self, 30, height-60)
+
+    def draw_index_footer(self, page_count):
+        page = self._pageNumber - 1
+        content = f""" This document contains sensitive information. Share this document with essential personal only. """
+
+        # global VALLE_LEAD_NEMBER
+        # self.valle_lead_number = VALLE_LEAD_NEMBER
+
+        lead_number_styles = ParagraphStyle(
+            'CenteredStyle',
+            parent=getSampleStyleSheet()['BodyText'],
+            alignment=1,
+            fontSize=14,
+            backColor=ACCENT_BG,
+            textColor=ACCENT,
+            leading=18,
+            borderRadius=3,
+            borderColor=ACCENT_BG,
+            borderWidth=1,
+            padding=(5, 2)
+        )
+
+        page_number_styles = ParagraphStyle(
+            'CenteredStyle',
+            parent=getSampleStyleSheet()['BodyText'],
+            alignment=1,
+            fontSize=22,
+            backColor=ACCENT,
+            textColor="white",
+            leading=24,
+            borderRadius=(8, 8),
+            borderColor=ACCENT,
+            borderWidth=1,
+            borderPadding=(2, 2, 20, 2)
+        )
+
+        table_name_styles = ParagraphStyle(
+            'table_name_styles',
+            parent=getSampleStyleSheet()['BodyText'],
+            alignment=0,  # 0=left, 1=center, 2=right
+            fontSize=12,
+            # leading=18
+        )
+
+        data = [[Paragraph("", table_name_styles),
+                Image(report, width=353, height=100),
+                Paragraph("", table_name_styles),]]
+
+        table_data = Table(data, colWidths=(70, 420, 80), rowHeights=30)
+
+        table_data.setStyle(TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'CENTRE'),
+            ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),
+            ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),
+            # ('GRID', (1, 0), (-2, -1), 1, black),
+            # ('GRID', (0, 0), (-1, -1), 0.5, red),
+            # ('LINEBELOW', (0, 0), (-1, -1), 1, ACCENT),
+            ('TEXTCOLOR', (0, 0), (1, -1), black)]))
+
+        # Draw the table on the canvas
+        table_data.wrapOn(self, 0, 0)
+        table_data.drawOn(self, 30, 60)
+
+        bottom_first_data = [
+            [Image(shield, width=18, height=18.25),
+                Paragraph(content, left_style),
+                Paragraph(f"{self.valle_lead_number}", lead_number_styles),
+                Paragraph(f"{page}", page_number_styles)
+             ]
+        ]
+
+        table = Table(bottom_first_data, colWidths=(
+            30, 360, 100, 60), rowHeights=60)
+
+        # Apply styles to the table if needed
+        style = TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'MIDD'),
+            ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),
+            # ('GRID', (1, 0), (-2, -1), 1, black),
+            # ('GRID', (0, 0), (-1, -1), 0.5, red),
+            ('LINEABOVE', (0, 0), (-1, -1), 1, ACCENT),
+            ('TEXTCOLOR', (0, 0), (1, -1), black)])
+
+        table.setStyle(style)
+
+        # Draw the table on the canvas
+        table.wrapOn(self, 0, 0)
+        table.drawOn(self, 30, 0)
+
+    def draw_header(self, page_count):
+
+        data = [[Image(valle_logo_black, width=60, height=25),
+                 Image(report, width=198, height=56),
+                 Image(bankImage, width=68, height=40)]]
+
+        table_data = Table(data, colWidths=(70, 420, 80), rowHeights=60)
+
+        table_data.setStyle(TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            # ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),
+            ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),
+            # ('GRID', (1, 0), (-2, -1), 1, black),
+            # ('GRID', (0, 0), (-1, -1), 0.5, red),
+            ('LINEBELOW', (0, 0), (-1, -1), 1, ACCENT),
+            ('TEXTCOLOR', (0, 0), (1, -1), black)]))
+
+        # Draw the table_data on the canvas
+        table_data.wrapOn(self, height-60, 0)
+        table_data.drawOn(self, 20, height-70)
+
+    def draw_footer(self, page_count):
+        page = self._pageNumber - 1
+        content = f""" This document contains sensitive information. Share this document with essential personal only. """
+
+        # global VALLE_LEAD_NEMBER
+        # self.valle_lead_number = VALLE_LEAD_NEMBER
+
+        lead_number_styles = ParagraphStyle(
+            'CenteredStyle',
+            parent=getSampleStyleSheet()['BodyText'],
+            alignment=1,
+            fontSize=14,
+            backColor=ACCENT_BG,
+            textColor=ACCENT,
+            leading=18,
+            # borderRadius=(3, 3),
+            borderColor=ACCENT_BG,
+            borderWidth=1,
+            padding=(5, 2)
+        )
+
+        page_number_styles = ParagraphStyle(
+            'CenteredStyle',
+            parent=getSampleStyleSheet()['BodyText'],
+            alignment=1,
+            fontSize=22,
+            backColor=ACCENT,
+            textColor="white",
+            leading=24,
+            # borderRadius=(8, 8),  
+            borderColor=ACCENT,
+            borderWidth=1,
+            borderPadding=(2, 2, 20, 2)
+        )
+
+        data = [[Image(shield, width=18, height=18.25),
+                Paragraph(content, left_style),
+                Paragraph(f"{self.valle_lead_number}", lead_number_styles), Paragraph(f"{page}", page_number_styles)]]
+
+        table = Table(data, colWidths=(30, 360, 100, 60), rowHeights=60)
+
+        # Apply styles to the table if needed
+        style = TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'CENTRE'),
+            ('ALIGN', (1, 0), (-2, -1), 'CENTRE'),
+            # ('GRID', (1, 0), (-2, -1), 1, black),
+            # ('GRID', (0, 0), (-1, -1), 0.5, red),
+            ('LINEABOVE', (0, 0), (-1, -1), 1, ACCENT),
+            ('TEXTCOLOR', (0, 0), (1, -1), black)])
+
+        table.setStyle(style)
+
+        # Draw the table on the canvas
+        table.wrapOn(self, 0, 0)
+        table.drawOn(self, 30, 0)
