@@ -746,7 +746,7 @@ class PDFGenerator():
 
         # Create a response with the PDF content type
         self.pdf_response = make_response(self.buffer.read())
-        self.pdf_response.headers['Content-Disposition'] = 'inline; filename=dynamic_pdf.pdf'
+        self.pdf_response.headers['Content-Disposition'] = f'inline; filename={self.valle_lead_number}.pdf'
         self.pdf_response.headers['Content-Type'] = 'application/pdf'
         
         ### Delete The Temporary Directory
