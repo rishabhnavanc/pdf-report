@@ -184,7 +184,7 @@ class PDFGenerator():
         
         self.prefix_mapping = {
             "property_value_assessment" : {
-                "land" : {
+                "land" : {"Rs "
                     "government_price" : "Rs ",
                     "consideration_price" : "Rs ",
                     "total_value_government_price" : {
@@ -293,6 +293,42 @@ class PDFGenerator():
                     }
                 },
                 "floor_4" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "non-rcc_1" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "non-rcc_2" : {
+                    "government_price" : "Rs ",
+                    "consideration_price" : "Rs ",
+                    "total_value_government_price" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    },
+                    "total_value_fair_market" : {
+                        "as_per_actual" : "Rs ",
+                        "as_per_document_provided" : "Rs "
+                    }
+                },
+                "non-rcc_3" : {
                     "government_price" : "Rs ",
                     "consideration_price" : "Rs ",
                     "total_value_government_price" : {
@@ -431,6 +467,21 @@ class PDFGenerator():
                         "as_per_actual" : " Sq.Ft.",
                         "as_per_document_provided" : " Sq.Ft.",
                         "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "non-rcc_1" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "non-rcc_2" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
+                    },
+                    "non-rcc_3" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft.",
+                        "as_per_approved_plan" : " Sq.Ft."
                     }
                 },
                 "sbua_detail" : {
@@ -526,6 +577,30 @@ class PDFGenerator():
                         "as_per_actual" : " Sq.Ft.",
                         "as_per_document_provided" : " Sq.Ft."
                     }
+                },
+                "non-rcc_1" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                },
+                "non-rcc_2" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
+                },
+                "non-rcc_3" : {
+                    "government_price" : " /Sq.Ft.",
+                    "consideration_price" : " /Sq.Ft.",
+                    "area" : {
+                        "as_per_actual" : " Sq.Ft.",
+                        "as_per_document_provided" : " Sq.Ft."
+                    }
                 }
             }
         }
@@ -568,7 +643,7 @@ class PDFGenerator():
 
         story.append(bordered_image)
         story.append(Spacer(height=5, width=width))
-        content_text = f"""<font size=28 color='white'>{self.organisation_name}</font>"""
+        content_text = f"""<font size=22 color='white'>{self.organisation_name}</font>"""
         story.append(Paragraph(content_text, pStyles))
         story.append(Spacer(height=30, width=width))
         story.append(Image(report, width=420, height=98))
@@ -768,13 +843,19 @@ class PDFGenerator():
                     for k, v in value.items():
                         prefix_x = prefix_data.get(key, {}).get(k, "")
                         suffix_x = suffix_data.get(key, {}).get(k, "")
-                        data.append(["",self.string_formatter(k),
+                        data.append(["",self.string_formatter(k, "    - "),
                                     self.value_formatter(v, prefix_x, suffix_x)])
                 else:
-                    prefix = prefix_data.get(key, "")
-                    suffix = suffix_data.get(key, "")
-                    data.append(["", self.string_formatter(
-                        key), self.value_formatter(value, prefix, suffix)])
+                    if key=="loan_application_number":
+                        prefix = prefix_data.get(key, "")
+                        suffix = suffix_data.get(key, "")
+                        data.append(["", self.string_formatter(
+                            key), value.upper()])
+                    else:
+                        prefix = prefix_data.get(key, "")
+                        suffix = suffix_data.get(key, "")
+                        data.append(["", self.string_formatter(
+                            key), self.value_formatter(value, prefix, suffix)])
 
             if data:
                 story.append(self.create_subsection_heading(subsection, j_subsection))
@@ -796,6 +877,8 @@ class PDFGenerator():
         all_images = []
 
         for img_number, img_data in enumerate(images_data):
+            
+            if img_data["filename"].split(".")[-1] not in ("jpg", "png", "jpeg"): continue
 
             image_name = "report_image_" + str(img_number)
 
