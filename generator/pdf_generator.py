@@ -11,6 +11,13 @@ from reportlab.platypus import SimpleDocTemplate, PageBreak, Paragraph, Preforma
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 # from generator.footer_generator import FooterCanvas
+from reportlab.graphics.renderSVG import draw
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.colors import black, HexColor
+from reportlab.platypus import Paragraph, Image, Table, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib import colors
 
 
 x, y = 0, 2
@@ -163,6 +170,18 @@ class PDFGenerator():
             "Images": ["All Images"]
         }
         
+        self.section_images  = {
+            "basic_valuation_detail" : basic_valuation_details,
+            "property_details" : property_details,
+            "building_detail" : building_details,
+            "infrastructure_detail" :infrastructure_details,
+            "technical_details": technical_details,
+            "property_value_assessment": property_value_assesment,
+            "valuer_remarks": valuer_remarks,
+            "images": images,
+            "valuer_detail" : valuer_details,
+        }
+        
         self.subsection_images = {
             "amenities":  amenities,
             "additional_details": additional_details,
@@ -184,7 +203,7 @@ class PDFGenerator():
         
         self.prefix_mapping = {
             "property_value_assessment" : {
-                "land" : {"Rs "
+                "land" : {
                     "government_price" : "Rs ",
                     "consideration_price" : "Rs ",
                     "total_value_government_price" : {
@@ -736,19 +755,8 @@ class PDFGenerator():
             fontSize=12,
             # leading=18
         )
-
-        switch = {
-            "basic_valuation_detail" : basic_valuation_details,
-            "property_details" : property_details,
-            "building_detail" : building_details,
-            "infrastructure_detail" :infrastructure_details,
-            "technical_details": technical_details,
-            "property_value_assessment": property_value_assesment,
-            "valuer_remarks": valuer_remarks,
-            "images": images,
-            "valuer_detail" : valuer_details,
-        }
-        section_image = switch.get(j_section, basic_valuation_details)
+        
+        section_image = self.section_images.get(j_section, basic_valuation_details)
 
         data = [
             [
@@ -1069,6 +1077,14 @@ class PDFGenerator():
         width = doc.width
         canvas.linearGradient(x0=0, y0=height, x1=width /
                               0.5, y1=0, colors=[self.start_color, self.end_color])
+        
+    def add_watermark(self, canvas, doc):
+        canvas.saveState()
+        canvas.setFont('Helvetica', 84)
+        canvas.setFillGray(0.8, 0.5)
+        canvas.rotate(45)
+        canvas.drawCentredString(700, 200, 'SAMPLE REPORT')
+        canvas.restoreState()
 
     def generate_pdf(self, valle_lead_number, insititute_lead_number, organisation_name):
 
@@ -1091,7 +1107,7 @@ class PDFGenerator():
         }
 
         self.pdf_report = SimpleDocTemplate(
-            self.buffer, pagesize=self.pagesize, topMargin=1*inch, bottomMargin=1*inch, title=f"Valluation Report{self.valle_lead_number}")
+            self.buffer, pagesize=self.pagesize, topMargin=1*inch, bottomMargin=1*inch, title=f"{self.valle_lead_number}")
 
         self.frame_cover = Frame(
             self.pdf_report.leftMargin, self.pdf_report.bottomMargin,
@@ -1118,7 +1134,7 @@ class PDFGenerator():
 
         self.pdf_report.onFirstPage = lambda canvas, doc: self.draw_page_background(
             canvas, doc)
-
+        
         self.pdf_queue = []
 
         # Cover page
@@ -1156,87 +1172,6 @@ class PDFGenerator():
             print("Unable to Delete Temporary Directory")
 
         return self.pdf_response
-    
-    
-from reportlab.graphics.renderSVG import draw
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter
-from reportlab.lib.colors import black, HexColor
-from reportlab.platypus import Paragraph, Image, Table, TableStyle
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib import colors
-
-
-x, y = 0, 2
-styles = getSampleStyleSheet()
-pStyles = ParagraphStyle(name="Heading1", alignment=1,
-                         parent=styles['BodyText'], leading=8.2)
-width, height = letter
-support_mobile_no = "8792957057"
-
-
-# IMAGES
-# bankImage = "./assets/images/bank_image.jpeg"
-# report = "./assets/images/report.png"
-# valle_logo_white = "./assets/images/valle_logo_white.png"
-# valle_logo_black = "./assets/images/valle_logo_black.jpeg"
-# basic_valuation_details = "./assets/images/Basic Valuation Details.jpeg"
-# property_details = "./assets/images/Property Details.jpg"
-# building_details = "./assets/images/Building Details .jpeg"
-# infrastructure_details = "./assets/images/Infrastructure Details.jpeg"
-# technical_details = "./assets/images/Technical Details.jpeg"
-# property_value_assesment = "./assets/images/Property Value Assesment.jpeg"
-# valuer_remarks = "./assets/images/Valuer Remarks.png"
-# valuer_details = "./assets/images/Valuer Details.png"
-# images = "./assets/images/Images Icon.jpeg"
-# shield = "./assets/images/shield.jpeg"
-# table_title_sider = "./assets/images/table_title_sider.jpeg"
-# property_image = "./assets/images/property_image.jpeg"
-# mobile_image = "./assets/images/Mobile.jpg"
-# email_image = "./assets/images/Email.jpg"
-# amenities = "./assets/images/Amenitites.jpeg"
-# additional_details = "./assets/images/additional_details.jpeg"
-# basic_details = "./assets/images/basic_details.jpeg"
-# bua_details = "./assets/images/BUA Details.jpeg"
-# construction_details = "./assets/images/Construction Details.jpeg"
-# final_valuation = "./assets/images/Final Valuation.jpeg"
-# ground_floor = "./assets/images/ground_floor.jpeg"
-# infrastructure_support = "./assets/images/Infrastructure Support.jpg"
-# land_area = "./assets/images/Land area.jpg"
-# loaction_details = "./assets/images/Loaction Details.jpeg"
-# plan_details = "./assets/images/Plan Details.jpeg"
-# plot_details = "./assets/images/Plot Details.jpeg"
-# remarks = "./assets/images/Remarks.jpeg"
-# sbua_details = "./assets/images/SBUA Details.png"
-# schedule_details = "./assets/images/Schedule Details.jpeg"
-# seal_signature_details = "./assets/images/seal_&_signature.jpeg"
-
-# COLOURS
-ACCENT = HexColor("#32B0F1")
-ACCENT_BG = HexColor("#EBF8FF")
-BACKGROUND = HexColor("#E9E9E8")
-TEXT_ME = HexColor("#6B7280")
-TEXT_HE = HexColor("#363551")
-
-# VALLE_LEAD_NEMBER = ""
-
-# Styles
-left_style = ParagraphStyle(
-    'CenteredStyle',
-    parent=getSampleStyleSheet()['BodyText'],
-    alignment=0,  # 0=left, 1=center, 2=right
-)
-centered_style = ParagraphStyle(
-    'CenteredStyle',
-    parent=getSampleStyleSheet()['BodyText'],
-    alignment=1,  # 0=left, 1=center, 2=right
-)
-right_style = ParagraphStyle(
-    'CenteredStyle',
-    parent=getSampleStyleSheet()['BodyText'],
-    alignment=2,  # 0=left, 1=center, 2=right
-)
-
 
 class FooterCanvas(canvas.Canvas):
 
