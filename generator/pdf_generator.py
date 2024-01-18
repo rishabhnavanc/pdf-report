@@ -860,6 +860,7 @@ class PDFGenerator():
             if data:
                 story.append(self.create_subsection_heading(subsection, j_subsection))
                 story.append(self.create_subsection(data))
+            story.append(Spacer(width=width, height=8))
 
         story.append(Spacer(width=width, height=15))
         # story.append(self.create_pdf_page_footer())
