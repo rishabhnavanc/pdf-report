@@ -642,10 +642,10 @@ class PDFGenerator():
         story = []
 
         story.append(bordered_image)
-        story.append(Spacer(height=5, width=width))
-        content_text = f"""<font size=22 color='white'>{self.organisation_name}</font>"""
+        story.append(Spacer(height=10, width=width))
+        content_text = f"""<font size=18 color='white'>{self.organisation_name}</font>"""
         story.append(Paragraph(content_text, pStyles))
-        story.append(Spacer(height=30, width=width))
+        story.append(Spacer(height=70, width=width))
         story.append(Image(report, width=420, height=98))
         story.append(Spacer(height=18, width=width))
 
