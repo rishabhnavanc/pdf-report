@@ -102,12 +102,12 @@ class PDFGenerator():
 
     def get_data(self, valle_lead_number):
 
-        url = "https://console.navanc.com/report/nis-view-report"
-        # url = "https://valle-be-api.dev.navanc.com/report/nis-view-report"
+        # url = "https://console.navanc.com/report/nis-view-report"
+        url = "https://valle-be-api.dev.navanc.com/report/nis-view-report"
 
         payload = json.dumps({
-            # "token":"eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..7fGLOTHktVWJowPg.yGUOzJFPlqhCyhA1NqQK_WsR8a12KdPq6r8FtPqfA0sajC_YTBnQ5VCEq1I5VJGZXH4EyGelCliEhxUQhNzywP1fdVdDX-qn2oI7c3gErcs9Zu975TKVkirSmuPZ3Ayc9-EuW0iQUDW6KxKdnDeJFGI8DLI7VGlEaL4YcyDatcZzfm_MDKUak7evASWWPPTDEIcJ2W0FsnHy-MI70iUsxBueEzaA3ywfU8QU5wrPWxBOTcpfN0EA6OSX8DVnq02ednMUACJwnbAIQBMno-TQZcx7uy3YCuXSAbvpWfNT1JuSOp-wb8RhnhAp7hxAockYCh9GzU6KeaiWN1S-43S5FmVAZ9PqIZ-ijgna5WnX0sY62jPwqT625wAjiIuPWx8.Cio4a8i6BnscYbydGxbWzg",
-            "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9uYXZhbmMtcHJvZC51cy5hdXRoMC5jb20vIn0..GnvKKCXI0hVnho1f.xW7rGqqDBbFq99Gy00ImOJdZ1bQxzlGyGn3AWFKxwOE_LZKAVOz1Q2y65dvhSPdLzHnk4zNFyESTjl1ZCvLKKPXH4T7MWiE32vK4Q67CoVfgxfo3OyIBiY7PWsOPf1hRysAfIjKMaEu3BUDjE7p6HFvTBwLCpapT32bX455MG68qXqkXgRglDFFhrej_WBNUyREXHPWjNqneCtKGjvRmyw3DL939c9KC677gCQhHFu9VNdWR3n8adbIRv_h6JHGeGE0h_MWG_OUZSvJrhlPFTpIWTyU1GQPLnRMZVMkAJvHwUrYLX2zeCrefJRGnJxXi9Ymm9SpQuE0910Lhe_z5ZGenrelwOVjlnL9SKgw.qnQGzZC2VD-Acyhlm5ssgw",
+            "token":"eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..7fGLOTHktVWJowPg.yGUOzJFPlqhCyhA1NqQK_WsR8a12KdPq6r8FtPqfA0sajC_YTBnQ5VCEq1I5VJGZXH4EyGelCliEhxUQhNzywP1fdVdDX-qn2oI7c3gErcs9Zu975TKVkirSmuPZ3Ayc9-EuW0iQUDW6KxKdnDeJFGI8DLI7VGlEaL4YcyDatcZzfm_MDKUak7evASWWPPTDEIcJ2W0FsnHy-MI70iUsxBueEzaA3ywfU8QU5wrPWxBOTcpfN0EA6OSX8DVnq02ednMUACJwnbAIQBMno-TQZcx7uy3YCuXSAbvpWfNT1JuSOp-wb8RhnhAp7hxAockYCh9GzU6KeaiWN1S-43S5FmVAZ9PqIZ-ijgna5WnX0sY62jPwqT625wAjiIuPWx8.Cio4a8i6BnscYbydGxbWzg",
+            # "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9uYXZhbmMtcHJvZC51cy5hdXRoMC5jb20vIn0..GnvKKCXI0hVnho1f.xW7rGqqDBbFq99Gy00ImOJdZ1bQxzlGyGn3AWFKxwOE_LZKAVOz1Q2y65dvhSPdLzHnk4zNFyESTjl1ZCvLKKPXH4T7MWiE32vK4Q67CoVfgxfo3OyIBiY7PWsOPf1hRysAfIjKMaEu3BUDjE7p6HFvTBwLCpapT32bX455MG68qXqkXgRglDFFhrej_WBNUyREXHPWjNqneCtKGjvRmyw3DL939c9KC677gCQhHFu9VNdWR3n8adbIRv_h6JHGeGE0h_MWG_OUZSvJrhlPFTpIWTyU1GQPLnRMZVMkAJvHwUrYLX2zeCrefJRGnJxXi9Ymm9SpQuE0910Lhe_z5ZGenrelwOVjlnL9SKgw.qnQGzZC2VD-Acyhlm5ssgw",
             "valle_lead_number": self.valle_lead_number
         })
         headers = {
@@ -510,7 +510,7 @@ class PDFGenerator():
                 },
                 "additional_details" : {
                     "construction_progress" : "%",
-                    "recommendation_for_fumding" : "%",
+                    "recommendation_for_funding" : "%",
                     "age_of_property" : " Years",
                     "residual_age_of_property" : " Years",
                     "development_in_vicinity" : "%"
