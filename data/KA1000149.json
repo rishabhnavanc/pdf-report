@@ -1,0 +1,285 @@
+{
+    "status": "S001",
+    "data": {
+        "basic_valuation_detail": {
+            "name_of_applicant": "Timalamma Virupakshappa",
+            "property_owner_name": "Sri.Veerupakshappa S/o.Narasappa ",
+            "relationship_with_applicant": "",
+            "report_date": "Wed, 17 Jan 2024 12:45:40 GMT",
+            "loan_type": "loan against property",
+            "person_met_site": "Veerupakshappa ",
+            "document_provided": "Property Tax Paid Receipt, Property Tax Paid Receipt, Property Tax Paid Receipt, Property Tax Paid Receipt, Property Tax Paid Receipt"
+        },
+        "property_details": {
+            "location_detail": {
+                "postal_address": {
+                    "address_line_1": "Kurubadoddi ",
+                    "address_line_2": "Kurubadoddi, Kurabdoddi, Raichur ",
+                    "state": "KARNATAKA",
+                    "district": "RAICHUR",
+                    "pincode": 584102
+                },
+                "address_as_document": {
+                    "address_line_1": "Kurubadoddi Village ",
+                    "address_line_2": "",
+                    "state": "KARNATAKA",
+                    "district": "RAICHUR",
+                    "pincode": 584102
+                },
+                "jurisdiction": "Gram Panchayat",
+                "distance_from_city_center": 9.0,
+                "property_type": "Building",
+                "property_sub_type": "residential independant building",
+                "coordinates": {
+                    "latitude": "16.215593N",
+                    "longitude": "77.430740E",
+                    "near_by_landmark": "Anjaneya Temple "
+                }
+            },
+            "schedule_detail": {
+                "north_of_property": {
+                    "as_per_site_visit": "Kallappa ",
+                    "as_per_legal_document": "Kallappa ",
+                    "is_match": true
+                },
+                "south_of_property": {
+                    "as_per_site_visit": "Road",
+                    "as_per_legal_document": "Road",
+                    "is_match": true
+                },
+                "west_of_property": {
+                    "as_per_site_visit": "Anjaneya ",
+                    "as_per_legal_document": "Anjaneya ",
+                    "is_match": true
+                },
+                "east_of_property": {
+                    "as_per_site_visit": "Kogile Bheemayya",
+                    "as_per_legal_document": "Kogile Bheemayya",
+                    "is_match": true
+                },
+                "boundary_matching": "Yes",
+                "earth_quake_resistant": "No",
+                "property_identification": "Yes",
+                "current_zoning": "Non Agricultural Land "
+            }
+        },
+        "building_detail": {
+            "construction_detail": {
+                "construction_type": "rcc",
+                "construction_quality": "good",
+                "floor_type": "vitrified tile flooring",
+                "roof_type": "beam ceiling",
+                "stair_type": "stones"
+            },
+            "plan_detail": {
+                "plan_approving_authority": "Not Available",
+                "approved_plan_permission_number": "NA ",
+                "layout_plan_detail": "No",
+                "plan_validty": "2024-01-17 00:00:00+00:00-2024-01-17 00:00:00+00:00",
+                "construction_plan": "No",
+                "occupancy_information": "self occupied"
+            }
+        },
+        "infrastructure_detail": {
+            "accessibility": "Yes",
+            "accessible_through": "one way",
+            "accessibility_type": "mud road",
+            "road_width": "10 ft - 30 ft",
+            "sewerage_system": "Yes",
+            "water_supply": "government",
+            "electricity": "Yes",
+            "number_of_lifts": "0"
+        },
+        "technical_details": {
+            "plot_dimensons": {
+                "north": {
+                    "as_per_actual": 18.0,
+                    "as_per_document_provided": 18.0,
+                    "as_per_approved_plan": "",
+                    "is_match": true
+                },
+                "south": {
+                    "as_per_actual": 18.0,
+                    "as_per_document_provided": 18.0,
+                    "as_per_approved_plan": "",
+                    "is_match": true
+                },
+                "east": {
+                    "as_per_actual": 35.0,
+                    "as_per_document_provided": 35.0,
+                    "as_per_approved_plan": "",
+                    "is_match": true
+                },
+                "west": {
+                    "as_per_actual": 35.0,
+                    "as_per_document_provided": 35.0,
+                    "as_per_approved_plan": "",
+                    "is_match": true
+                }
+            },
+            "land_area": {
+                "holding_type": "Freehold",
+                "area": {
+                    "as_per_actual": 630.0,
+                    "as_per_document_provided": 630.0,
+                    "as_per_approved_plan": "",
+                    "is_match": true
+                }
+            },
+            "bua_detail": {
+                "ground_1": {
+                    "as_per_actual": 630.0,
+                    "as_per_document_provided": 630.0,
+                    "is_match": true
+                },
+                "summation": {
+                    "as_per_actual": "",
+                    "as_per_document_provided": "",
+                    "is_match": true
+                },
+                "configuration": "0 BS + 1 GF + 0 F + 0 Non-RCC"
+            },
+            "sbua_detail": {
+                "as_per_actual": "",
+                "as_per_document_provided": "",
+                "is_match": true
+            },
+            "additional_details": {
+                "risk_of_demolition": "No",
+                "construction_progress": "100",
+                "progress_in_words": "Fully Completed Building ",
+                "recommendation_for_fumding": "100",
+                "age_of_property": "0",
+                "residual_age_of_property": "60",
+                "rera_detail": "",
+                "development_in_vicinity": "75",
+                "earlier_valuation": "No",
+                "negative_area_as_per_local_norms": "No",
+                "demolition_notification": "No",
+                "community_sensitivity": "NA",
+                "municipal_notification": "NA",
+                "ownership_details": {
+                    "type_of_document": "",
+                    "in_favour_of": "",
+                    "executed_on": "",
+                    "document_number": ""
+                },
+                "market_feedback": ""
+            }
+        },
+        "property_value_assessment": {
+            "land": {
+                "government_price": 111.0,
+                "consideration_price": 500.0,
+                "area": {
+                    "as_per_actual": 630.0,
+                    "as_per_document_provided": 630.0
+                },
+                "total_value_government_price": {
+                    "as_per_actual": 69930.0,
+                    "as_per_document_provided": 69930.0
+                },
+                "total_value_fair_market": {
+                    "as_per_actual": 315000.0,
+                    "as_per_document_provided": 315000.0
+                }
+            },
+            "ground_1": {
+                "government_price": 500.0,
+                "consideration_price": 1500.0,
+                "area": {
+                    "as_per_actual": 630.0,
+                    "as_per_document_provided": 630.0
+                },
+                "total_value_government_price": {
+                    "as_per_actual": 315000.0,
+                    "as_per_document_provided": 315000.0
+                },
+                "total_value_fair_market": {
+                    "as_per_actual": 945000.0,
+                    "as_per_document_provided": 945000.0
+                }
+            },
+            "amenities": {},
+            "final_valuation": {
+                "fair_market_value_on_date": {
+                    "as_per_actual": "",
+                    "as_per_document_provided": ""
+                },
+                "fair_market_value_on_completion": {
+                    "as_per_actual": 1260000.0,
+                    "as_per_document_provided": 1260000.0
+                },
+                "distressed_sale_value": {
+                    "as_per_actual": 1008000.0,
+                    "as_per_document_provided": 1008000.0
+                },
+                "valuation_as_per_guideline": {
+                    "as_per_actual": 384930.0,
+                    "as_per_document_provided": 384930.0
+                }
+            }
+        },
+        "valuer_remarks": {
+            "remark 1": "This Report Prepared by Navanc Data Sciences Pvt Ltd for Apac Financial Services Pvt Ltd  ",
+            "remark 2": "Plan and Permission not Furnished "
+        },
+        "images": [{
+                "filename": "WhatsApp Image 2024-01-16 at 6.33.23 PM (1).jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuation_doc2024-01-17%2010%3A57%3A00.155027%2B05%3A30KA1000149others_WhatsApp%20Image%202024-01-16%20at%206.33.23%20PM%20%281%29.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=ed055e33ba447a78883158abd4d14c4f56e902503d50b993fa9b409a06ef3a9f"
+            },
+            {
+                "filename": "WhatsApp Image 2024-01-16 at 6.33.22 PM.jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuation_doc2024-01-17%2010%3A57%3A01.161383%2B05%3A30KA1000149others_WhatsApp%20Image%202024-01-16%20at%206.33.22%20PM.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=3ba9a8bd68ff41d857aba6038d1aba4b080ac05075d08db2e68412216e6c5d81"
+            },
+            {
+                "filename": "WhatsApp Image 2024-01-16 at 6.33.25 PM (1).jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuation_doc2024-01-17%2010%3A57%3A01.124117%2B05%3A30KA1000149others_WhatsApp%20Image%202024-01-16%20at%206.33.25%20PM%20%281%29.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=b0178397eb045347ec49d2d3de20d518d31e75651c8a3244109770f398d73288"
+            },
+            {
+                "filename": "WhatsApp Image 2024-01-16 at 6.33.22 PM (2).jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuation_doc2024-01-17%2010%3A57%3A01.106609%2B05%3A30KA1000149others_WhatsApp%20Image%202024-01-16%20at%206.33.22%20PM%20%282%29.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=fa2d9010d126ce7f9278578910329fb9088bdcf1f1637b93fa01c24e2837f60d"
+            },
+            {
+                "filename": "WhatsApp Image 2024-01-16 at 6.33.24 PM.jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuation_doc2024-01-17%2010%3A57%3A01.137209%2B05%3A30KA1000149others_WhatsApp%20Image%202024-01-16%20at%206.33.24%20PM.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=ec939e5dd46538794c542978117d02f270361823e05acfc7363c91b245422b6a"
+            },
+            {
+                "filename": "WhatsApp Image 2024-01-16 at 6.33.22 PM (1).jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuation_doc2024-01-17%2010%3A57%3A01.455444%2B05%3A30KA1000149others_WhatsApp%20Image%202024-01-16%20at%206.33.22%20PM%20%281%29.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=1630f84dc8edd64dfe2e39018e23c66d1d70352157d4508ace19f9cc20a54d98"
+            },
+            {
+                "filename": "WhatsApp Image 2024-01-16 at 6.33.23 PM (2).jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuation_doc2024-01-17%2010%3A57%3A01.371999%2B05%3A30KA1000149others_WhatsApp%20Image%202024-01-16%20at%206.33.23%20PM%20%282%29.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=4133196207cb7119c402c3496bdddd5f59dc2ce5a0f14296966da9b16696822d"
+            },
+            {
+                "filename": "WhatsApp Image 2024-01-16 at 6.33.25 PM.jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuation_doc2024-01-17%2010%3A57%3A01.354058%2B05%3A30KA1000149others_WhatsApp%20Image%202024-01-16%20at%206.33.25%20PM.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=2bd3e9f45d98cb27ccdde64e38d87c1bed2437354c937dddf824558d9ec665f2"
+            },
+            {
+                "filename": "WhatsApp Image 2024-01-16 at 6.33.24 PM (1).jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuation_doc2024-01-17%2010%3A57%3A01.320522%2B05%3A30KA1000149others_WhatsApp%20Image%202024-01-16%20at%206.33.24%20PM%20%281%29.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=b3422b6335071d612c07ad657de22c7e1e2ab93538860cdacd070fa1199c0be4"
+            },
+            {
+                "filename": "WhatsApp Image 2024-01-16 at 6.33.21 PM (1).jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuation_doc2024-01-17%2010%3A57%3A22.501053%2B05%3A30KA1000149others_WhatsApp%20Image%202024-01-16%20at%206.33.21%20PM%20%281%29.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=158c6dd1b3ccaccad1c22fec1abf896b96b181eaf791b86dd01c7b4790fa69f7"
+            },
+            {
+                "filename": "WhatsApp Image 2024-01-16 at 6.33.21 PM (2).jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuation_doc2024-01-17%2010%3A57%3A22.503319%2B05%3A30KA1000149others_WhatsApp%20Image%202024-01-16%20at%206.33.21%20PM%20%282%29.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=ab788d1ae5b925974ca6513af5eb4759a3c8abe23d14f36a27a0b14ec1ca8f0f"
+            }
+        ],
+        "valuer_detail": {
+            "first_name": "Sharanabasappa",
+            "last_name": "Gouda",
+            "seal_doc": {
+                "filename": "WhatsApp Image 2024-01-17 at 10.54.00 AM.jpeg",
+                "url": "https://s3.ap-south-1.amazonaws.com/docs.navanc.com/valle/valuer_document2024-01-17%2010%3A56%3A23.065521%2B05%3A30seal_WhatsApp%20Image%202024-01-17%20at%2010.54.00%20AM.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYIFVDXUROCAMJCD6%2F20240117%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T124540Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=e5a877fc0a9c6d116dcca1df4a7265ec30d5b262d0f3c4b2ed6dc494d03c05d5"
+            },
+            "sign_doc": {
+                "filename": null,
+                "url": null
+            }
+        }
+    }
+}

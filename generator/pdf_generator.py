@@ -1,5 +1,7 @@
+from functools import wraps
 import os
 import json
+import reportlab.pdfgen.canvas
 import requests
 import shutil
 
@@ -102,12 +104,12 @@ class PDFGenerator():
 
     def get_data(self, valle_lead_number):
 
-        # url = "https://console.navanc.com/report/nis-view-report"
-        url = "https://valle-be-api.dev.navanc.com/report/nis-view-report"
+        url = "https://console.navanc.com/report/nis-view-report"
+        # url = "https://valle-be-api.dev.navanc.com/report/nis-view-report"
 
         payload = json.dumps({
-            "token":"eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..7fGLOTHktVWJowPg.yGUOzJFPlqhCyhA1NqQK_WsR8a12KdPq6r8FtPqfA0sajC_YTBnQ5VCEq1I5VJGZXH4EyGelCliEhxUQhNzywP1fdVdDX-qn2oI7c3gErcs9Zu975TKVkirSmuPZ3Ayc9-EuW0iQUDW6KxKdnDeJFGI8DLI7VGlEaL4YcyDatcZzfm_MDKUak7evASWWPPTDEIcJ2W0FsnHy-MI70iUsxBueEzaA3ywfU8QU5wrPWxBOTcpfN0EA6OSX8DVnq02ednMUACJwnbAIQBMno-TQZcx7uy3YCuXSAbvpWfNT1JuSOp-wb8RhnhAp7hxAockYCh9GzU6KeaiWN1S-43S5FmVAZ9PqIZ-ijgna5WnX0sY62jPwqT625wAjiIuPWx8.Cio4a8i6BnscYbydGxbWzg",
-            # "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9uYXZhbmMtcHJvZC51cy5hdXRoMC5jb20vIn0..GnvKKCXI0hVnho1f.xW7rGqqDBbFq99Gy00ImOJdZ1bQxzlGyGn3AWFKxwOE_LZKAVOz1Q2y65dvhSPdLzHnk4zNFyESTjl1ZCvLKKPXH4T7MWiE32vK4Q67CoVfgxfo3OyIBiY7PWsOPf1hRysAfIjKMaEu3BUDjE7p6HFvTBwLCpapT32bX455MG68qXqkXgRglDFFhrej_WBNUyREXHPWjNqneCtKGjvRmyw3DL939c9KC677gCQhHFu9VNdWR3n8adbIRv_h6JHGeGE0h_MWG_OUZSvJrhlPFTpIWTyU1GQPLnRMZVMkAJvHwUrYLX2zeCrefJRGnJxXi9Ymm9SpQuE0910Lhe_z5ZGenrelwOVjlnL9SKgw.qnQGzZC2VD-Acyhlm5ssgw",
+            # "token":"eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9kZXYtc2hlN2ZlaGowYTBnYTh6eS51cy5hdXRoMC5jb20vIn0..7fGLOTHktVWJowPg.yGUOzJFPlqhCyhA1NqQK_WsR8a12KdPq6r8FtPqfA0sajC_YTBnQ5VCEq1I5VJGZXH4EyGelCliEhxUQhNzywP1fdVdDX-qn2oI7c3gErcs9Zu975TKVkirSmuPZ3Ayc9-EuW0iQUDW6KxKdnDeJFGI8DLI7VGlEaL4YcyDatcZzfm_MDKUak7evASWWPPTDEIcJ2W0FsnHy-MI70iUsxBueEzaA3ywfU8QU5wrPWxBOTcpfN0EA6OSX8DVnq02ednMUACJwnbAIQBMno-TQZcx7uy3YCuXSAbvpWfNT1JuSOp-wb8RhnhAp7hxAockYCh9GzU6KeaiWN1S-43S5FmVAZ9PqIZ-ijgna5WnX0sY62jPwqT625wAjiIuPWx8.Cio4a8i6BnscYbydGxbWzg",
+            "token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9uYXZhbmMtcHJvZC51cy5hdXRoMC5jb20vIn0..GnvKKCXI0hVnho1f.xW7rGqqDBbFq99Gy00ImOJdZ1bQxzlGyGn3AWFKxwOE_LZKAVOz1Q2y65dvhSPdLzHnk4zNFyESTjl1ZCvLKKPXH4T7MWiE32vK4Q67CoVfgxfo3OyIBiY7PWsOPf1hRysAfIjKMaEu3BUDjE7p6HFvTBwLCpapT32bX455MG68qXqkXgRglDFFhrej_WBNUyREXHPWjNqneCtKGjvRmyw3DL939c9KC677gCQhHFu9VNdWR3n8adbIRv_h6JHGeGE0h_MWG_OUZSvJrhlPFTpIWTyU1GQPLnRMZVMkAJvHwUrYLX2zeCrefJRGnJxXi9Ymm9SpQuE0910Lhe_z5ZGenrelwOVjlnL9SKgw.qnQGzZC2VD-Acyhlm5ssgw",
             "valle_lead_number": self.valle_lead_number
         })
         headers = {
@@ -648,6 +650,13 @@ class PDFGenerator():
         string = string.replace("_", " ")
         string = string.title()
         
+        try:
+            price_float = float(string)
+            # # Format the float value with commas
+            string = '{:,.0f}'.format(price_float)            
+        except:
+            pass
+        
         if string: string = prefix + string + suffix
 
         v_styles = ParagraphStyle(name="Heading1", alignment=0,
@@ -803,7 +812,7 @@ class PDFGenerator():
 
         return table_data
 
-    def create_subsection(self, data):
+    def create_subsection(self, data, subsection="", j_subsection=""):
 
         table_data = Table(data, colWidths=(25, 260, 250))
 
@@ -813,6 +822,21 @@ class PDFGenerator():
             ('TEXTCOLOR', (0, 0), (-2, -1), TEXT_ME),
             ('TEXTCOLOR', (2, 0), (-1, -1), TEXT_HE),
         ]))
+        
+        if subsection == 'Final Valuation':
+            table_data.setStyle(TableStyle([
+                ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                ('BACKGROUND', (0, 0), (-1, -1), ACCENT_BG),
+                # ('BACKGROUND', (0, 0), (-1, -1), BACKGROUND),
+                # ('VALIGN', (1, 0), (-2, -1), 'BOTTOM'),
+                # ('ALIGN', (2, 0), (-1, -2), 'CENTRE'),
+                # ('ALIGN', (0, 1), (-3, -1), 'RIGHT'),
+                # ('VALIGN', (0, 1), (-3, -1), 'CENTRE'),
+                # ('ALIGN', (0, 0), (-2, -2), 'CENTRE'),
+                # ('GRID', (1, 0), (-2, -1), 1, black),
+                ('GRID', (0, 0), (-1, -1), 0.5, black),
+                ('TEXTCOLOR', (0, 0), (1, -1), black)
+            ]))
 
         return table_data
 
@@ -867,7 +891,7 @@ class PDFGenerator():
 
             if data:
                 story.append(self.create_subsection_heading(subsection, j_subsection))
-                story.append(self.create_subsection(data))
+                story.append(self.create_subsection(data, subsection, j_subsection))
             story.append(Spacer(width=width, height=8))
 
         story.append(Spacer(width=width, height=15))
@@ -884,22 +908,26 @@ class PDFGenerator():
 
         data = []
         all_images = []
+        
+        # images_data = images_data[:9]
 
         for img_number, img_data in enumerate(images_data):
             
-            if img_data["filename"].split(".")[-1] not in ("jpg", "png", "jpeg"): continue
+            if img_data["filename"].split(".")[-1] not in ("jpg", "png", "jpeg", "jfif"): continue
+            try:
+                image_name = "report_image_" + str(img_number)
 
-            image_name = "report_image_" + str(img_number)
+                image_url = img_data["url"]
 
-            image_url = img_data["url"]
+                image_data = requests.get(image_url)
 
-            image_data = requests.get(image_url)
+                with open(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/{image_name}.jpg', 'wb') as f:
+                    f.write(image_data.content)
 
-            with open(f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/{image_name}.jpg', 'wb') as f:
-                f.write(image_data.content)
-
-            all_images.append(
-                f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/{image_name}.jpg')
+                all_images.append(
+                    f'{os.getcwd()}/assets/pdf_dynamic_images/{self.valle_lead_number}/{image_name}.jpg')
+            except Exception as e:
+                print('Error : ', str(e))
 
         data = self.destribute_images(all_images)
 
@@ -1081,17 +1109,19 @@ class PDFGenerator():
     def add_watermark(self, canvas, doc):
         canvas.saveState()
         canvas.setFont('Helvetica', 84)
-        canvas.setFillGray(0.8, 0.5)
+        canvas.setFillGray(0.8, 0.35)
         canvas.rotate(45)
-        canvas.drawCentredString(700, 200, 'SAMPLE REPORT')
+        canvas.drawCentredString(500, 65, 'TENTATIVE')
         canvas.restoreState()
-
-    def generate_pdf(self, valle_lead_number, insititute_lead_number, organisation_name):
+        
+    def generate_pdf(self, valle_lead_number, insititute_lead_number, organisation_name, tentative_report=True):
 
         self.valle_lead_number = valle_lead_number
         self.insititute_lead_number = insititute_lead_number
         self.organisation_name = organisation_name
-
+        self.tentative_report = tentative_report
+        
+        print("Tentative report : ", self.tentative_report)
         self.get_data(self.valle_lead_number)
 
         try:
@@ -1122,10 +1152,16 @@ class PDFGenerator():
             id='normal'
         )
 
+        
         # Create a PageTemplate with the Frame
-        self.page_template_cover = PageTemplate(
-            id='cover_page', frames=[self.frame_cover])
-
+        if self.tentative_report:
+            self.page_template_cover = PageTemplate(
+                id='cover_page', frames=[self.frame_cover], onPage=self.add_watermark)
+        else:
+            self.page_template_cover = PageTemplate(
+                id='cover_page', frames=[self.frame_cover])
+            
+            
         self.page_template = PageTemplate(id='index_page', frames=[
             self.frame_index])
 
@@ -1154,8 +1190,12 @@ class PDFGenerator():
         global VALLE_LEAD_NEMBER
         VALLE_LEAD_NEMBER = self.valle_lead_number
         
-        self.pdf_report.build(
-            self.pdf_queue,  canvasmaker=FooterCanvas)
+        if self.tentative_report:
+            self.pdf_report.build(
+                self.pdf_queue,  canvasmaker=FooterCanvas, onLaterPages=self.add_watermark)
+        else:
+            self.pdf_report.build(
+                self.pdf_queue,  canvasmaker=FooterCanvas)
 
         self.buffer.seek(0)
 
