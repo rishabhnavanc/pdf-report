@@ -1,7 +1,6 @@
 from functools import wraps
 import os
 import json
-import reportlab.pdfgen.canvas
 import requests
 import shutil
 
@@ -815,10 +814,13 @@ class PDFGenerator():
     def create_subsection(self, data, subsection="", j_subsection=""):
 
         table_data = Table(data, colWidths=(25, 260, 250))
+        
+        # if subsection == "Declaration":
+        #     table_data = Table(data, colWidths=(25, 20, 490))
 
         table_data.setStyle(TableStyle([
             ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-            # ('GRID', (0, 0), (-1, -1), 0.5, red),
+            # ('GRID', (0, 0), (-1, -1), 0.5, black),
             ('TEXTCOLOR', (0, 0), (-2, -1), TEXT_ME),
             ('TEXTCOLOR', (2, 0), (-1, -1), TEXT_HE),
         ]))
