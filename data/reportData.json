@@ -1,380 +1,347 @@
 {
-    "basic_valuation_detail": {
-        "name_of_applicant": "Sachin   ",
-        "property_owner_name": "",
-        "relationship_with_applicant": "",
-        "report_date": "Mon, 08 Jan 2024 18:28:08 GMT",
-        "loan_type": "Working Capital Loan",
-        "person_met_site": "",
-        "document_provided": "Settle Deed, Property Tax Paid Receipt, Legal Heir Certificate"
+  "basic_valuation_detail": {
+    "name_of_applicant": "Production  Test",
+    "property_owner_name": "Prod",
+    "relationship_with_applicant": "",
+    "report_date": "Tue, 05 Mar 2024 12:06:34 GMT",
+    "loan_type": "working capital loan",
+    "person_met_site": "Test",
+    "document_provided": "AADHAR CARD  (FRONT AND BACK side), Property Tax Paid Receipt, Settle Deed"
+  },
+  "property_details": {
+    "location_detail": {
+      "postal_address": {
+        "address_line_1": "7th Main, 5th Cross",
+        "address_line_2": "H/No-291, BTM 2nd Stage",
+        "state": "KARNATAKA",
+        "district": "BENGALURU URBAN",
+        "pincode": 560076
+      },
+      "address_as_document": {
+        "address_line_1": "7th Main, 5th Cross",
+        "address_line_2": "H/No-291, BTM 2nd Stage",
+        "state": "KARNATAKA",
+        "district": "BENGALURU URBAN",
+        "pincode": 560078
+      },
+      "jurisdiction": "Nagar Panchayat",
+      "distance_from_city_center": 1.2,
+      "property_type": "Building",
+      "property_sub_type": "residential independant building",
+      "coordinates": {
+        "latitude": "17.982768",
+        "longitude": "73.08826",
+        "near_by_landmark": "Opposite Temple"
+      }
     },
-    "property_details": {
-        "location_detail": {
-            "postal_address": {
-                "address_line_1": "75, Sunrise Township ",
-                "address_line_2": "Hosur Road ",
-                "state": "KARNATAKA",
-                "district": "BENGALURU URBAN",
-                "pincode": 560033
-            },
-            "address_as_document": {
-                "address_line_1": "75, Sunrise Township ",
-                "address_line_2": "Hosur Road ",
-                "state": "KARNATAKA",
-                "district": "BENGALURU URBAN",
-                "pincode": 560033
-            },
-            "jurisdiction": "City Corporation",
-            "distance_from_city_center": 2.0,
-            "property_type": "Building",
-            "property_sub_type": "Commercial Building",
-            "coordinates": {
-                "latitude": "11.7743",
-                "longitude": "78.1460",
-                "near_by_landmark": "Near XYZ Pub "
-            }
-        },
-        "schedule_detail": {
-            "east_of_property": {
-                "as_per_site_visit": "South North Passage",
-                "as_per_legal_document": "South North Passage",
-                "is_match": false
-            },
-            "north_of_property": {
-                "as_per_site_visit": "East West Road",
-                "as_per_legal_document": "East West Road",
-                "is_match": true
-            },
-            "west_of_property": {
-                "as_per_site_visit": "Vellaiyan Land",
-                "as_per_legal_document": "Vellaiyan Land",
-                "is_match": true
-            },
-            "south_of_property": {
-                "as_per_site_visit": "Devamani Plot",
-                "as_per_legal_document": "Dev Plot",
-                "is_match": false
-            },
-            "boundary_matching": "Yes",
-            "earth_quake_resistant": "Yes",
-            "property_identification": "No",
-            "current_zoning": "Gram panchayat"
-        }
-    },
-    "building_detail": {
-        "construction_detail": {
-            "construction_type": "rcc",
-            "construction_quality": "poor",
-            "floor_type": "cement concrete flooring",
-            "roof_type": "dry wall ceiling",
-            "stair_type": "precast concrete"
-        },
-        "plan_detail": {
-            "plan_approving_authority": "AMC",
-            "approved_plan_permission_number": "AMC005",
-            "layout_plan_detail": "No",
-            "plan_validty": "2023-09-14 00:00:00-2024-09-14 00:00:00",
-            "construction_plan": "Yes",
-            "occupancy_information": "self occupied"
-        }
-    },
-    "infrastructure_detail": {
-        "accessibility": "Yes",
-        "accessible_through": "one way",
-        "accessibility_type": "gravel road",
-        "road_width": "50 ft - 100 ft",
-        "sewerage_system": "Yes",
-        "water_supply": "government",
-        "electricity": "Yes",
-        "number_of_lifts": "4"
-    },
-    "technical_details": {
-        "plot_dimensons": {
-            "north": {
-                "as_per_actual": 2000.0,
-                "as_per_document_provided": 2000.0,
-                "as_per_approved_plan": 2000.0,
-                "is_match": false
-            },
-            "south": {
-                "as_per_actual": 2000.0,
-                "as_per_document_provided": 2000.0,
-                "as_per_approved_plan": 2000.0,
-                "is_match": false
-            },
-            "east": {
-                "as_per_actual": 2000.0,
-                "as_per_document_provided": 2000.0,
-                "as_per_approved_plan": 2000.0,
-                "is_match": false
-            },
-            "west": {
-                "as_per_actual": 2000.0,
-                "as_per_document_provided": 2000.0,
-                "as_per_approved_plan": 2000.0,
-                "is_match": false
-            }
-        },
-        "land_area": {
-            "holding_type": "Freehold",
-            "area": {
-                "as_per_actual": 2000.0,
-                "as_per_document_provided": 2000.0,
-                "as_per_approved_plan": 2000.0,
-                "is_match": ""
-            }
-        },
-        "bua_detail": {
-            "roof_1": {
-                "as_per_actual": 2000.0,
-                "as_per_approved_plan": 2000.0,
-                "is_match": true
-            },
-            "basement_1": {
-                "as_per_actual": 2000.0,
-                "as_per_approved_plan": 2000.0,
-                "is_match": false
-            },
-            "floor_1": {
-                "as_per_actual": 2000.0,
-                "as_per_approved_plan": 2000.0,
-                "is_match": true
-            },
-            "ground_1": {
-                "as_per_actual": 2000.0,
-                "as_per_approved_plan": 2000.0,
-                "is_match": true
-            },
-            "floor_2": {
-                "as_per_actual": 2000.0,
-                "as_per_approved_plan": 2000.0,
-                "is_match": true
-            },
-            "basement_2": {
-                "as_per_actual": 12.0,
-                "as_per_approved_plan": 12.0,
-                "is_match": true
-            },
-            "roof_2": {
-                "as_per_actual": "",
-                "as_per_approved_plan": "",
-                "is_match": true
-            },
-            "summation": {
-                "as_per_actual": 123456.0,
-                "as_per_approved_plan": 45678.0,
-                "is_match": ""
-            },
-            "configuration": "2 BS + 1 GF + 2 F + 2 R"
-        },
-        "sbua_detail": {
-            "as_per_actual": 10000.0,
-            "as_per_approved_plan": 10000.0,
-            "is_match": ""
-        },
-        "additional_details": {
-            "risk_of_demolition": "No",
-            "construction_progress": "24%",
-            "progress_in_words": "Due to the property owner's unavailability this week, kindly initiate the valuation process next week.",
-            "recommendation_for_fumding": "58%",
-            "age_of_property": "23",
-            "residual_age_of_property": "27",
-            "rera_detail": "AMC",
-            "development_in_vicinity": "34%",
-            "earlier_valuation": "No",
-            "negative_area_as_per_local_norms": "No",
-            "demolition_notification": "No",
-            "community_sensitivity": "Due to the property owner's unavailability this week, kindly initiate the valuation process next week.",
-            "municipal_notification": "Due to the property owner's unavailability this week, kindly initiate the valuation process next week.",
-            "ownership_details": {
-                "type_of_document": "Sale Deed",
-                "in_favour_of": "John Jacob",
-                "executed_on": "Thu, 14 Sep 2023 00:00:00 GMT",
-                "document_number": "AMC"
-            },
-            "market_feedback": "Due to the property owner's unavailability"
-        }
-    },
-    "property_value_assessment": {
-        "land": {
-            "government_price": 2000.0,
-            "consideration_price": 2000.0,
-            "area": {
-                "as_per_actual": 2000.0,
-                "as_per_approved_plan": 2000.0
-            },
-            "total_value_government_price": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            },
-            "total_value_fair_market": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            }
-        },
-        "roof_1": {
-            "government_price": 2000.0,
-            "consideration_price": 2000.0,
-            "area": {
-                "as_per_actual": 1000.0,
-                "as_per_approved_plan": 1000.0
-            },
-            "total_value_government_price": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            },
-            "total_value_fair_market": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            }
-        },
-        "basement_1": {
-            "government_price": 2000.0,
-            "consideration_price": 2000.0,
-            "area": {
-                "as_per_actual": 1000.0,
-                "as_per_approved_plan": 1000.0
-            },
-            "total_value_government_price": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            },
-            "total_value_fair_market": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            }
-        },
-        "floor_1": {
-            "government_price": 2000.0,
-            "consideration_price": 2000.0,
-            "area": {
-                "as_per_actual": 1000.0,
-                "as_per_approved_plan": 1000.0
-            },
-            "total_value_government_price": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            },
-            "total_value_fair_market": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            }
-        },
-        "ground_1": {
-            "government_price": 2000.0,
-            "consideration_price": 2000.0,
-            "area": {
-                "as_per_actual": 1000.0,
-                "as_per_approved_plan": 1000.0
-            },
-            "total_value_government_price": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            },
-            "total_value_fair_market": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            }
-        },
-        "floor_2": {
-            "government_price": 2000.0,
-            "consideration_price": 2000.0,
-            "area": {
-                "as_per_actual": 1000.0,
-                "as_per_approved_plan": 1000.0
-            },
-            "total_value_government_price": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            },
-            "total_value_fair_market": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            }
-        },
-        "basement_2": {
-            "government_price": "",
-            "consideration_price": "",
-            "area": {
-                "as_per_actual": "",
-                "as_per_approved_plan": ""
-            },
-            "total_value_government_price": {
-                "as_per_actual": "",
-                "as_per_approved_plan": ""
-            },
-            "total_value_fair_market": {
-                "as_per_actual": "",
-                "as_per_approved_plan": ""
-            }
-        },
-        "roof_2": {
-            "government_price": "",
-            "consideration_price": "",
-            "area": {
-                "as_per_actual": "",
-                "as_per_approved_plan": ""
-            },
-            "total_value_government_price": {
-                "as_per_actual": "",
-                "as_per_approved_plan": ""
-            },
-            "total_value_fair_market": {
-                "as_per_actual": "",
-                "as_per_approved_plan": ""
-            }
-        },
-        "amenities": {
-            "amenity_1": {
-                "item_name": "Gym99",
-                "value": 200000.0
-            },
-            "amenity_2": {
-                "item_name": "Swimming Pool99",
-                "value": 300000.0
-            },
-            "amenity_3": {
-                "item_name": "100",
-                "value": 1000.0
-            }
-        },
-        "final_valuation": {
-            "fair_market_value_on_date": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 2000000.0
-            },
-            "fair_market_value_on_completion": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 3000000.0
-            },
-            "distressed_sale_value": {
-                "as_per_actual": 2000000.0,
-                "as_per_approved_plan": 3000000.0
-            },
-            "valuation_as_per_guideline": {
-                "as_per_actual": 1000000.0,
-                "as_per_approved_plan": 3000000.0
-            }
-        }
-    },
-    "valuer_remarks": {
-        "remark 1": "Due to the property owner's unavailability this week, kindly initiate the valuation process next week",
-        "remark 2": "Due to the property owner's unavailability this week, kindly initiate the valuation process next week"
-    },
-    "images": [{
-        "filename": "valuation_doc2024-01-08 08_11_49.610354others_Add Media Button.png",
-        "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-08%2011%3A28%3A28.160322others_valuation_doc2024-01-08%2008_11_49.610354others_Add%20Media%20Button.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240108%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240108T182808Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=fdeee49ed180de382a5cc362fe9787c0fea169bc8f1dc0eb36f6f03f8d1c91ac"
-    }],
-    "valuer_detail": {
-        "first_name": "Mayur",
-        "last_name": "Jain",
-        "seal_doc": {
-            "filename": "image 13.jpg",
-            "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuer_document2024-01-04%2019%3A33%3A22.753761seal_image%2013.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240108%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240108T182808Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=8568ef0a1f6ebedd72d41901f05abfc9938aec2b13d6ccffc1854317b140e9c2"
-        },
-        "sign_doc": {
-            "filename": "image 12.jpg",
-            "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuer_document2024-01-04%2019%3A31%3A39.727677sign_image%2012.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240108%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240108T182808Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=678794fb7cd2e646c9bf37dba8db5b238ea6a3722fc78fdca413941ac97a8a36"
-        }
+    "schedule_detail": {
+      "north_of_property": {
+        "as_per_site_visit": "Road",
+        "as_per_legal_document": "Road",
+        "is_match": true
+      },
+      "east_of_property": {
+        "as_per_site_visit": "Mall",
+        "as_per_legal_document": "Mall",
+        "is_match": false
+      },
+      "west_of_property": {
+        "as_per_site_visit": "Building",
+        "as_per_legal_document": "Building",
+        "is_match": true
+      },
+      "south_of_property": {
+        "as_per_site_visit": "Mall",
+        "as_per_legal_document": "Mall",
+        "is_match": true
+      },
+      "boundary_matching": "Yes",
+      "earth_quake_resistant": "Yes",
+      "property_identification": "Yes",
+      "current_zoning": "Municipal"
     }
+  },
+  "building_detail": {
+    "construction_detail": {
+      "construction_type": "rcc + non rcc",
+      "construction_quality": "good",
+      "floor_type": "cement concrete flooring",
+      "roof_type": "asbestos sheet",
+      "stair_type": "metal"
+    },
+    "plan_detail": {
+      "plan_approving_authority": "Central Ministry",
+      "approved_plan_permission_number": "Ka12-8907",
+      "layout_plan_detail": "Yes",
+      "plan_validty": "2021-02-08 00:00:00+00:00-2025-03-06 00:00:00+00:00",
+      "construction_plan": "Yes",
+      "occupancy_information": "self occupied"
+    }
+  },
+  "infrastructure_detail": {
+    "accessibility": "Yes",
+    "accessible_through": "two way",
+    "accessibility_type": "cement road",
+    "road_width": "30 ft - 50 ft",
+    "sewerage_system": "Yes",
+    "water_supply": "private",
+    "electricity": "Yes",
+    "number_of_lifts": "3"
+  },
+  "technical_details": {
+    "plot_dimensons": {
+      "north": {
+        "as_per_actual": 10,
+        "as_per_document_provided": 10,
+        "as_per_layout_plan": 10,
+        "is_match": true
+      },
+      "south": {
+        "as_per_actual": 25,
+        "as_per_document_provided": 25,
+        "as_per_layout_plan": 25,
+        "is_match": true
+      },
+      "east": {
+        "as_per_actual": 20,
+        "as_per_document_provided": 20,
+        "as_per_layout_plan": 20,
+        "is_match": true
+      },
+      "west": {
+        "as_per_actual": 50,
+        "as_per_document_provided": 50,
+        "as_per_layout_plan": 50,
+        "is_match": true
+      }
+    },
+    "land_area": {
+      "holding_type": "Freehold",
+      "area": {
+        "as_per_actual": 100,
+        "as_per_document_provided": 100,
+        "as_per_layout_plan": 100,
+        "is_match": true
+      }
+    },
+    "bua_detail": {
+      "ground_1": {
+        "as_per_actual": 10,
+        "as_per_document_provided": 10,
+        "as_per_approved_plan": "",
+        "is_match": true
+      },
+      "floor_1": {
+        "as_per_actual": 20,
+        "as_per_document_provided": 20,
+        "as_per_approved_plan": "",
+        "is_match": true
+      },
+      "summation": {
+        "as_per_actual": 30,
+        "as_per_document_provided": 30,
+        "as_per_approved_plan": "",
+        "is_match": true
+      },
+      "configuration": "0 BS + 1 GF + 1 F + 0 Non-RCC"
+    },
+    "sbua_detail": {
+      "as_per_actual": 50,
+      "as_per_document_provided": 50,
+      "as_per_approved_plan": "",
+      "is_match": true
+    },
+    "additional_details": {
+      "risk_of_demolition": "No",
+      "construction_progress": "62",
+      "progress_in_words": "Well constructed property.",
+      "recommendation_for_funding": "59",
+      "age_of_property": "10",
+      "residual_age_of_property": "50",
+      "ownership_details": {
+        "type_of_document": "Sale Deed",
+        "in_favour_of": "Mr Navanc",
+        "executed_on": "Sun, 14 Jan 2024 00:00:00 GMT",
+        "document_number": "NAV009-1245"
+      },
+      "rera_detail": "XAB09RF-RD",
+      "development_in_vicinity": "93",
+      "earlier_valuation": "No",
+      "negative_area_as_per_local_norms": "No",
+      "demolition_notification": "No",
+      "market_feedback": "Very Nice Property for aquisition.",
+      "community_sensitivity": "Dispersed community",
+      "municipal_notification": "Good to go property"
+    }
+  },
+  "property_value_assessment": {
+    "land": {
+      "government_price": 10,
+      "consideration_price": 20,
+      "area": {
+        "as_per_actual": 100,
+        "as_per_document_provided": 100,
+        "as_per_layout_plan": 100
+      },
+      "total_value_government_price": {
+        "as_per_actual": 1000,
+        "as_per_document_provided": 1000,
+        "as_per_layout_plan": ""
+      },
+      "total_value_fair_market": {
+        "as_per_actual": 2000,
+        "as_per_document_provided": 2000,
+        "as_per_layout_plan": ""
+      }
+    },
+    "ground_1": {
+      "government_price": 15,
+      "consideration_price": 20,
+      "area": {
+        "as_per_actual": 10,
+        "as_per_document_provided": 10,
+        "as_per_approved_plan": ""
+      },
+      "total_value_government_price": {
+        "as_per_actual": 150,
+        "as_per_document_provided": 150,
+        "as_per_approved_plan": ""
+      },
+      "total_value_fair_market": {
+        "as_per_actual": 200,
+        "as_per_document_provided": 200,
+        "as_per_approved_plan": ""
+      }
+    },
+    "amenities": {
+      "amenity_1": {
+        "item_name": "gym",
+        "value": 200
+      },
+      "amenity_2": {
+        "item_name": "swimming pool",
+        "value": 250
+      }
+    },
+    "final_valuation": {
+      "fair_market_value_on_date": {
+        "as_per_actual": 5500,
+        "as_per_document_provided": 5500,
+        "as_per_approved_plan": ""
+      },
+      "fair_market_value_on_completion": {
+        "as_per_actual": 7000,
+        "as_per_document_provided": 7000,
+        "as_per_approved_plan": ""
+      },
+      "distressed_sale_value": {
+        "as_per_actual": 4000,
+        "as_per_document_provided": 4000,
+        "as_per_approved_plan": ""
+      },
+      "valuation_as_per_guideline": {
+        "as_per_actual": 2000,
+        "as_per_document_provided": 2000,
+        "as_per_approved_plan": ""
+      }
+    }
+  },
+  "valuer_remarks": {
+    "remark 1": "Very Nice Property.",
+    "remark 2": "Byom gift this property to Rishabh"
+  },
+  "images": [
+    {
+      "filename": "Screenshot from 2023-12-01 16-24-57.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A52.853966others_Screenshot%20from%202023-12-01%2016-24-57.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=292cbd2c2edd2ef47e78b7fff2be584aef550782dd9a27e524a5ce20ff8faf41"
+    },
+    {
+      "filename": "Screenshot from 2023-11-30 15-52-23.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.040181others_Screenshot%20from%202023-11-30%2015-52-23.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=3fa3d26880ea7229ffbccbf6885e774d1eb5fd314e722c69669cf8c4ae6b352c"
+    },
+    {
+      "filename": "Screenshot from 2023-11-29 15-57-26.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.184007others_Screenshot%20from%202023-11-29%2015-57-26.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=6a0c0a6a7ed3901d832e6c1cebb843556a3a848dd2db7c297873225bad8aca51"
+    },
+    {
+      "filename": "Screenshot from 2023-11-29 15-59-02.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.344351others_Screenshot%20from%202023-11-29%2015-59-02.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=5454a989c71eecd3537c8651e4f7f4f8a4c2aa97b067f6198fdf3881d646a9ee"
+    },
+    {
+      "filename": "Screenshot from 2023-11-29 15-56-32.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.350479others_Screenshot%20from%202023-11-29%2015-56-32.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=abcf120e08b3d9fc53c7abe24a66c08600b75dbfc7c6a2d395f46733bee9fd79"
+    },
+    {
+      "filename": "Screenshot from 2023-11-30 15-42-00.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.360822others_Screenshot%20from%202023-11-30%2015-42-00.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=47ca980276c390d9ba46e9a53ee4fc640d38011b77f6e13fd4877edf0bbe43da"
+    },
+    {
+      "filename": "Screenshot from 2023-11-29 15-56-55.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.358380others_Screenshot%20from%202023-11-29%2015-56-55.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=c2bf5a28716c4c9e317dbb4aba02b544d19d733791c5f1bd978a2f8f7c29259c"
+    },
+    {
+      "filename": "Screenshot from 2023-11-29 15-58-16.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.363467others_Screenshot%20from%202023-11-29%2015-58-16.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=79901fab673707a9d894038b9dad402962380dd9d36113173c3653a744c9e3d8"
+    },
+    {
+      "filename": "Screenshot from 2023-11-29 15-57-45.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.426552others_Screenshot%20from%202023-11-29%2015-57-45.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=f7b1f4fc59931ad6131be815a84dccf94895206fc8acd1846d9d804584557a95"
+    },
+    {
+      "filename": "Screenshot from 2023-11-29 15-58-48.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.394350others_Screenshot%20from%202023-11-29%2015-58-48.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=1bc4d9b29fdff38e262e154e7bc24fce77ddc6e8411910f31654355fcdba08b2"
+    },
+    {
+      "filename": "Screenshot from 2023-11-29 15-58-33.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.425494others_Screenshot%20from%202023-11-29%2015-58-33.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=bd4477f0d0b78350f14994736f0bd1ab8cba37f2b6a5320f47f93bf13f7136ed"
+    },
+    {
+      "filename": "Screenshot from 2023-12-05 22-08-01.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.449141others_Screenshot%20from%202023-12-05%2022-08-01.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=f2d8772b417c78dc256919041724fa7943767b1bef595743a0a93f0262368e0f"
+    },
+    {
+      "filename": "Screenshot from 2023-12-01 12-52-23.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.638993others_Screenshot%20from%202023-12-01%2012-52-23.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=4d6180cdb879827725a237a4895cea67eb306a9fa8f9dff23b7d44df59f599a9"
+    },
+    {
+      "filename": "Screenshot from 2023-12-01 12-52-24.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.656031others_Screenshot%20from%202023-12-01%2012-52-24.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=6948514e91e81409b93465d8b5b1615aade7c60a44c0c3c2660883823e74a181"
+    },
+    {
+      "filename": "Screenshot from 2023-12-01 12-53-01.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.558974others_Screenshot%20from%202023-12-01%2012-53-01.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=f83c3988c5ae297fbedd234a4a2c5f3b09e15604c2f4549f550c831119fd9296"
+    },
+    {
+      "filename": "Screenshot from 2023-12-01 12-52-31.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.603497others_Screenshot%20from%202023-12-01%2012-52-31.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=c8342d1e58741ad15ee4c9522809effe14c50a68243b6fd561964c5f0e345f1a"
+    },
+    {
+      "filename": "Screenshot from 2023-12-01 12-52-25.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.623200others_Screenshot%20from%202023-12-01%2012-52-25.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=2ac27cbcd0d50ed89972a93fc9ce5feed70d5c970de28ff5538b667533afee93"
+    },
+    {
+      "filename": "Screenshot from 2023-12-01 12-52-18.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.644256others_Screenshot%20from%202023-12-01%2012-52-18.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=c10292daf543c936b17275e0398f2141a2c6201d380cddbd495711eee327e941"
+    },
+    {
+      "filename": "Screenshot from 2023-12-01 12-52-16.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.659994others_Screenshot%20from%202023-12-01%2012-52-16.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=ac78c4ea37d44783e07bc56777d68eee6885ed6db1a71962c3b306d0f4a4e230"
+    },
+    {
+      "filename": "Screenshot from 2023-12-01 12-52-24-1.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuation_doc2024-01-14%2021%3A16%3A53.657049others_Screenshot%20from%202023-12-01%2012-52-24-1.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=5c70ba46911c3ed3da4b5a3788d35f0e9f2d476ee364343977766a36fceaee73"
+    }
+  ],
+  "valuer_detail": {
+    "first_name": "Akanshu",
+    "last_name": "Sonkar",
+    "seal_doc": {
+      "filename": "Screenshot from 2024-01-10 13-50-44.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuer_document2024-01-14%2021%3A15%3A45.539668seal_Screenshot%20from%202024-01-10%2013-50-44.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=f3563949f6af19d6450e45c2e18a5766f40f7d1a495bf75df595e6e1e02774d8"
+    },
+    "sign_doc": {
+      "filename": "Screenshot from 2023-12-01 16-24-57.png",
+      "url": "https://s3.ap-south-1.amazonaws.com/docs.dev.navanc.com/valle/valuer_document2024-01-14%2021%3A16%3A29.697708sign_Screenshot%20from%202023-12-01%2016-24-57.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXVAFUS6B4PJVX5GV%2F20240305%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240305T120634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=cbcf90664777867f1c5c66af84e49b090277ee2d9b757c5ff1244c9a77c9fb24"
+    }
+  }
 }
